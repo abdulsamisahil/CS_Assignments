@@ -17,5 +17,9 @@ namespace Real_Estate_Agent
             InitializeComponent();
         }
 
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

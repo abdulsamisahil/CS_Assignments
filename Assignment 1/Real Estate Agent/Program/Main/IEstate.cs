@@ -12,7 +12,7 @@ namespace Real_Estate_Agent
      interface IEstate
     {
         // Each state has an id and an address, properties for the interface 
-        string estate_Id { get; set; }
-        Address Estate_address { get; set; }
+        string Id { get; set; }
+        Address Address { get; set; }
     }
 }

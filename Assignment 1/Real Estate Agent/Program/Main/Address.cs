@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Real_Estate_Agent
 { 
         
-    class Address
+    public class Address
     {
         private string  zip_code;
         private string street;

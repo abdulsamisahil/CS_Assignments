@@ -7,5 +7,21 @@ namespace Real_Estate_Agent
 {
     public class Warehouse : Commercial
     {
+        // Specific vars 
+        private double rating; 
+
+        // Constructor 
+
+        public Warehouse(double rating) : base()
+        {
+            this.rating = rating; 
+        }
+
+        //Property 
+
+        public double Rating
+        {
+            get; set; 
+        }
     }
 }

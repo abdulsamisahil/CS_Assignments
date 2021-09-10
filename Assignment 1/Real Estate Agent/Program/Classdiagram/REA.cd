@@ -3,110 +3,116 @@
   <Class Name="Real_Estate_Agent.Estate" Collapsed="true">
     <Position X="3.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAgAAAAIAAAAAAAAAAAAAAAAAAIAAAACAAAAAAAAAgE=</HashCode>
-      <FileName>Estate.cs</FileName>
+      <HashCode>AAACAAACAAAAAAAAAAAQAAAAAAIAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Program\Main\Estate.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Address" />
-    </ShowAsAssociation>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="Real_Estate_Agent.Commercial">
+  <Class Name="Real_Estate_Agent.Commercial" Collapsed="true">
     <Position X="2" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAE=</HashCode>
-      <FileName>Commercial.cs</FileName>
+      <HashCode>AAAAAAACAAAAAAAAAAQAAAAEAAACAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>Commercials\Commercial.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Real_Estate_Agent.Residential">
+  <Class Name="Real_Estate_Agent.Residential" Collapsed="true">
     <Position X="5.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAE=</HashCode>
-      <FileName>Residential.cs</FileName>
+      <HashCode>AAAAAEACAABAAAgAAAAIAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Residencies\Residential.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Real_Estate_Agent.Institutional">
+  <Class Name="Real_Estate_Agent.Institutional" Collapsed="true">
     <Position X="3.75" Y="1.5" Width="1.5" />
+    <InheritanceLine Type="Real_Estate_Agent.Estate" ManuallyRouted="true">
+      <Path>
+        <Point X="4.5" Y="0.5" />
+        <Point X="4.5" Y="0.887" />
+        <Point X="5.373" Y="0.887" />
+        <Point X="5.373" Y="1.655" />
+        <Point X="5.25" Y="1.655" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAE=</HashCode>
-      <FileName>Institutional.cs</FileName>
+      <HashCode>AAAAAAACAAAIAAAACAAAAAQAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Institutes\Institutional.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Real_Estate_Agent.Apartment">
+  <Class Name="Real_Estate_Agent.Apartment" Collapsed="true">
     <Position X="8" Y="3.25" Width="1.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Apartment.cs</FileName>
+      <HashCode>AAAAAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Residencies\Apartments\Apartment.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Real_Estate_Agent.Villa">
+  <Class Name="Real_Estate_Agent.Villa" Collapsed="true">
     <Position X="6.5" Y="3.25" Width="1.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Villa.cs</FileName>
+      <HashCode>AAAAAAAAAAAACAAACAAAAAgAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Residencies\Villas\Villa.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Real_Estate_Agent.Shop">
     <Position X="0.5" Y="3.25" Width="1.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Shop.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Commercials\Shop.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Real_Estate_Agent.Warehouse">
     <Position X="2" Y="3.25" Width="1.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Warehouse.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAQAAAAEAAAAAAAAAAAA=</HashCode>
+      <FileName>Commercials\Warehouse.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Real_Estate_Agent.School">
     <Position X="3.5" Y="3.25" Width="1.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>School.cs</FileName>
+      <HashCode>CAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Institutes\School.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Real_Estate_Agent.University">
     <Position X="5" Y="3.25" Width="1.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>University.cs</FileName>
+      <HashCode>BAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Institutes\University.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Real_Estate_Agent.Address" Collapsed="true">
     <Position X="7" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAACAAAAAAABgACAAAAAAAAAAA=</HashCode>
-      <FileName>Address.cs</FileName>
+      <FileName>Program\Main\Address.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Real_Estate_Agent.Rental" Collapsed="true">
-    <Position X="8" Y="4.5" Width="1.25" />
+    <Position X="8.25" Y="4.5" Width="1.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Rental.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Residencies\Apartments\Rental.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Real_Estate_Agent.Tenement" Collapsed="true">
-    <Position X="8" Y="5.5" Width="1.25" />
+    <Position X="8.25" Y="5.5" Width="1.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Tenement.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAACAAAAAIAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Residencies\Apartments\Tenement.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Real_Estate_Agent.Rowhouse" Collapsed="true">
     <Position X="6.5" Y="4.5" Width="1.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Rowhouse.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAIAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>Residencies\Villas\Rowhouse.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Interface Name="Real_Estate_Agent.IEstate" Collapsed="true">
     <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAIAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAA=</HashCode>
-      <FileName>IEstate.cs</FileName>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Program\Main\IEstate.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Font Name="Segoe UI" Size="9" />

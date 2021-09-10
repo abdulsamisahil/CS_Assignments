@@ -13,40 +13,57 @@ namespace Real_Estate_Agent
     public abstract class Estate : IEstate
     {
         //Common vars for all subs 
-        private string id;
+        
         private Address address;
+         
 
+
+
+        // Constructor 
+        public Estate(string id, Address address) 
+        {
+            id = Id;
+            this.address = address; 
+        }
+
+
+       public Estate()
+        {
+
+        }
 
         #region properties 
-        public string estate_Id 
+        public string Id 
         {
-            get { return id;  } 
+            get { return Id;  } 
             set
             {
-                if (id != null)
-                    id = value; 
+                if (Id != null)
+                    Id = value; 
             }
         }
-        Address IEstate.Estate_address 
+       
+
+        Address IEstate.Address 
         {
-            get { return address; }
-            set { address = value; }
+            get; set; 
         }
 
-        internal Address Address
-        {
-            get => address;
-            set
-            {
-                address = value;
-            }
-        }
+        //internal Address Address
+        //{
+        //    get => address;
+        //    set
+        //    {
+        //        address = value;
+        //    }
+        //}
+
         #endregion
 
 
 
         // The abstract method which is common for all estates
-        public abstract double area();
+        public abstract double calculateArea();
 
 
     }

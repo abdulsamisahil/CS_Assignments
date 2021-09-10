@@ -7,5 +7,28 @@ namespace Real_Estate_Agent
 {
     public class Villa : Residential
     {
+        private bool basement;
+        private int constructionYear; 
+
+        // Constructor 
+
+        public Villa(bool b, int cy, int nbrOfRooms, int f) : base(nbrOfRooms, f)
+        {
+            this.basement = b;
+            this.constructionYear = cy; 
+        }
+
+        #region Properties 
+
+        public bool Basement
+        {
+            get; set; 
+        }
+
+        public int ConstructionYear
+        {
+            get; set;
+        }
+        #endregion
     }
 }

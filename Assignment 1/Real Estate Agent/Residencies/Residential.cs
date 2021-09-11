@@ -19,17 +19,10 @@ namespace Real_Estate_Agent
             this.numberOfRooms = r;
             this.floor = f; 
         }
-      #region Properties
-        public double NumberOfRooms
+        public Residential()
         {
-            get; set; 
-        }
-        public double Floor
-        {
-            get; set;
-        }
 
-#endregion
+        }
 
         public override double calculateArea()
         {

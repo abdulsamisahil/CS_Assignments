@@ -15,6 +15,7 @@ namespace Real_Estate_Agent
         {
             this.balcony = balcony; 
         }
+        
 
         // Proptery 
         public bool Balcony

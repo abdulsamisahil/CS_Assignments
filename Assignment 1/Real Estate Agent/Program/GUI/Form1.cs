@@ -180,7 +180,7 @@ namespace Real_Estate_Agent
             else
                 setCommonVarsToWarehouse();
         }
-
+        #region setting labels to their right values 
         private void setCommonVarsToUnversity()
         {
             setCommonVars("Group rooms", "Name", "Library");
@@ -220,6 +220,7 @@ namespace Real_Estate_Agent
         {
             setCommonVars("Construction year", "Rooms", "Floor");
         }
+        #endregion
 
         private void setCommonVars(string str, string str2, string str3)
         {   

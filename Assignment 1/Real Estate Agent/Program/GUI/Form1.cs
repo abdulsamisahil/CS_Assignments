@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.Drawing;
-
+using System.Collections.Generic;
 
 namespace Real_Estate_Agent
 {
@@ -10,12 +10,28 @@ namespace Real_Estate_Agent
         string[] eTypes = new string[] { "Commercial", "Institutional", "Residential" };
 
         int activeEstateIndex = -1;
+        
         int activeSubTypeIndex = -1; 
 
+        public mainForm()
+        {
+            InitializeComponent();
+
+            eTypeComboBox.Items.AddRange(eTypes);
+
+            // List<Countries> countriesValues = Enum.GetValues(typeof(Countries)).ToList();
+
+            string[] countriesValues = Enum.GetNames(typeof(Countries));
+
+            countriesComboBox.Items.AddRange(countriesValues);
+
+        }
+
         // Returns the subType array in acccordance to the main 3 categories 
-        private string [] returnSubTypes(int index)
+        private string[] returnSubTypes(int index)
         {
             string[] types = new string[5];
+            
             switch (index)
             {
                 case 0:
@@ -26,16 +42,10 @@ namespace Real_Estate_Agent
                     break;
                 case 2:
                     types = new string[] { "Villa", "Rowhouse", "Rental", "Tenement" };
-                    break; 
+                    break;
 
             }
-            return types; 
-        }
-
-        public mainForm()
-        {
-            InitializeComponent();
-            eTypeComboBox.Items.AddRange(eTypes);
+            return types;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -104,7 +114,7 @@ namespace Real_Estate_Agent
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         private void txtCV1_TextChanged(object sender, EventArgs e)
@@ -122,104 +132,102 @@ namespace Real_Estate_Agent
             activeSubTypeIndex = eSubComboBox.SelectedIndex;
 
 
-
             switch (activeEstateIndex)
             {
                 case 0:
-                    if (activeSubTypeIndex == 0)
-                        subTypes("Shop");
-                    else
-                        subTypes("Warehouse"); 
+                    setCommonVarsToCommercial(activeSubTypeIndex);
                     break;
-               case 1:
-                    if (activeSubTypeIndex == 0)
-                        subTypes("School");
-                    else
-                        subTypes("University");
+                case 1:
+                    setCommonVarsToInstitutional(activeSubTypeIndex);
                     break;
                 case 2:
-                    switch (activeSubTypeIndex)
-                    {
-                        case 0:
-                            subTypes("Villa");
-                            break;
-                        case 1:
-                            subTypes("Rowhouse");
-                            break;
-                        case 2:
-                            subTypes("Rental");
-                            break;
-                        case 3:
-                            subTypes("Tenement");
-                            break; 
-                    }
+                    setCommonVarsResidential(activeSubTypeIndex);
                     break;
-
+            }           
+        }
+        
+        private void setCommonVarsResidential(int activeSubTypeIndex)
+        {
+            switch (activeSubTypeIndex)
+            {
+                case 0:
+                    setCommonVarsToVilla();
+                    break;
+                case 1:
+                    setCommonVarsToRowHouse();
+                    break;
+                case 2:
+                    setCommonVarsToRental();
+                    break;
+                case 3:
+                    setCommonVarsToTeneament();
+                    break;
             }
-
-
-            
-           
         }
 
-        // Returns subtypes index 
-        private int subTypesIndex() 
+        private void setCommonVarsToInstitutional(int activeSubTypeIndex)
         {
-            return eSubComboBox.SelectedIndex; 
-        }
-        // Returns estate type index 
-        private int estateTypeIndex()
-        {
-            return eTypeComboBox.SelectedIndex; 
+            if (activeSubTypeIndex == 0)
+                setCommonVarsToSchool();
+            else
+                setCommonVarsToUnversity();
         }
 
-
-        private void subTypes (string str, string str2, string str3)
+        private void setCommonVarsToCommercial(int activeSubTypeIndex)
         {
-            string data = "";
+            if (activeSubTypeIndex == 0)
+                setCommonVarsToShop();
+            else
+                setCommonVarsToWarehouse();
+        }
+
+        private void setCommonVarsToUnversity()
+        {
+            setCommonVars("Group rooms", "Name", "Library");
+        }
+
+        private void setCommonVarsToSchool()
+        {
+            setCommonVars("Type of school", "School name", "Library");
+        }
+
+        private void setCommonVarsToWarehouse()
+        {
+            setCommonVars("Rating", "Usage", "Income");
+        }
+
+        private void setCommonVarsToShop()
+        {
+            setCommonVars("Shope name", "Usage", "Income");
+        }
+
+        private void setCommonVarsToTeneament()
+        {
+            setCommonVars("Housing association", "Rooms", "Floor");
+        }
+
+        private void setCommonVarsToRental()
+        {
+            setCommonVars("Rent", "Rooms", "floor");
+        }
+
+        private void setCommonVarsToRowHouse()
+        {
+            setCommonVars("Garden", "Rooms", "Floor");
+        }
+
+        private void setCommonVarsToVilla()
+        {
+            setCommonVars("Construction year", "Rooms", "Floor");
+        }
+
+        private void setCommonVars(string str, string str2, string str3)
+        {   
             CommonVar1.Text = str;
+            
             CommonVar2.Text = str2;
+            
             CommonVar3.Text = str3;
-
-            if (str == "Shop")
-            {
-                setCommonVars("Shope name", "Usage", "Income"); 
-            }
-            else if (str == "Warehouse")
-            {
-                setCommonVars("Rating", "Usage", "Income");
-            }
-            else if (str == "School")
-            {
-                CommonVar1.Text = "Type of school";
-                CommonVar2.Text = "School name";
-                CommonVar3.Text = "Library";
-            }
-            else if (str == "University")
-            {
-                CommonVar1.Text = "Group rooms";
-                CommonVar2.Text = "Name";
-                CommonVar3.Text = "Library";
-            }
-            else if (str == "Villa")
-            {
-                CommonVar1.Text = "Construction year";
-                CommonVar2.Text = "Rooms";
-                CommonVar3.Text = "Floor";
-            }
-            else if (str == "Villa")
-            {
-                CommonVar1.Text = "Construction year";
-                CommonVar2.Text = "Rooms";
-                CommonVar3.Text = "Floor";
-            }
-            // return data; 
         }
-
-       private void setCommonVars(string str1, string str2, string str3)
-        {
-            subTypes(str1, str2, str3); 
-        }
-         
     }
 }

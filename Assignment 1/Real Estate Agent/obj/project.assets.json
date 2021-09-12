@@ -8,19 +8,19 @@
     "net5.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\mutaz\\.nuget\\packages\\": {}
+    "C:\\Users\\Sami\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mutaz\\Documents\\GitHub\\CS_Assignments\\Assignment 1\\Real Estate Agent\\Real Estate Agent.csproj",
+      "projectUniqueName": "C:\\Users\\Sami\\Documents\\GitHub\\CS_Assignments\\Assignment 1\\Real Estate Agent\\Real Estate Agent.csproj",
       "projectName": "Real Estate Agent",
-      "projectPath": "C:\\Users\\mutaz\\Documents\\GitHub\\CS_Assignments\\Assignment 1\\Real Estate Agent\\Real Estate Agent.csproj",
-      "packagesPath": "C:\\Users\\mutaz\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mutaz\\Documents\\GitHub\\CS_Assignments\\Assignment 1\\Real Estate Agent\\obj\\",
+      "projectPath": "C:\\Users\\Sami\\Documents\\GitHub\\CS_Assignments\\Assignment 1\\Real Estate Agent\\Real Estate Agent.csproj",
+      "packagesPath": "C:\\Users\\Sami\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Sami\\Documents\\GitHub\\CS_Assignments\\Assignment 1\\Real Estate Agent\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\mutaz\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Sami\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -28,7 +28,8 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {},
+        "https://packagesource": {}
       },
       "frameworks": {
         "net5.0-windows7.0": {

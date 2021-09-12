@@ -49,6 +49,14 @@ namespace Real_Estate_Agent
             get; set; 
         }
 
+        public Address Address
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         //internal Address Address
         //{
         //    get => address;

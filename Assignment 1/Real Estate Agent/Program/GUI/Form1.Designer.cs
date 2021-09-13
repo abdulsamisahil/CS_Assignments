@@ -184,10 +184,11 @@ namespace Real_Estate_Agent
             this.btnCreate.TabIndex = 12;
             this.btnCreate.Text = "Create";
             this.btnCreate.UseVisualStyleBackColor = false;
+            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
             // 
             // listView1
             // 
-            this.listView1.BackColor = System.Drawing.Color.LightGray;
+            this.listView1.BackColor = System.Drawing.Color.White;
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(519, 319);
             this.listView1.Name = "listView1";
@@ -220,7 +221,7 @@ namespace Real_Estate_Agent
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.LightGray;
+            this.pictureBox1.BackColor = System.Drawing.Color.White;
             this.pictureBox1.Location = new System.Drawing.Point(31, 319);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(471, 190);
@@ -310,7 +311,7 @@ namespace Real_Estate_Agent
             // 
             this.AccessibleDescription = "";
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1035, 519);
             this.Controls.Add(this.countriesComboBox);

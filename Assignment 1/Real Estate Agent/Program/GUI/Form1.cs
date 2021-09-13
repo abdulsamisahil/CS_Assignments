@@ -230,5 +230,41 @@ namespace Real_Estate_Agent
             
             CommonVar3.Text = str3;
         }
+
+        private void btnCreate_Click(object sender, EventArgs e)
+        {
+            //Todo: Figure out the user input object, by checking with the EstateType and SubType Enums 
+            //Todo: Once the right input is found out, create the estate object and instantiate it to it's right subtype 
+            //Todo: Call upon Estatehandler and add it to the collection 
+            //Todo: Show it up in the gui listbox, with its full information visible
+
+
+
+
+        }
+
+        // Creating Estate Object
+
+        private void createEstate(string userInput)
+        {
+            int estate = estateIndex();
+            int subType = subTypeIndex(); 
+
+
+        }
+       
+
+        // Estate index returns 
+        private int estateIndex() 
+        {
+            activeEstateIndex = eTypeComboBox.SelectedIndex;
+            return activeEstateIndex; 
+        }
+        // Subtype index returns 
+        private int subTypeIndex()
+        {
+            activeSubTypeIndex = eSubComboBox.SelectedIndex;
+            return activeSubTypeIndex;
+        }
     }
 }

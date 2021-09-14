@@ -30,7 +30,7 @@ namespace Real_Estate_Agent
         {
             get; set;  
         }
-        public string Income
+        public double Income
         {
             get; set;
         }

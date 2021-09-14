@@ -1,7 +1,8 @@
 ﻿using System;
+
 using System.Windows.Forms;
-using System.Drawing;
-using System.Collections.Generic;
+
+using Real_Estate_Agent.Program.Main;
 
 namespace Real_Estate_Agent
 {
@@ -237,20 +238,77 @@ namespace Real_Estate_Agent
             //Todo: Once the right input is found out, create the estate object and instantiate it to it's right subtype 
             //Todo: Call upon Estatehandler and add it to the collection 
             //Todo: Show it up in the gui listbox, with its full information visible
-
-
-
-
         }
 
         // Creating Estate Object
 
         private void createEstate(string userInput)
         {
+
             int estate = estateIndex();
-            int subType = subTypeIndex(); 
+
+            EstateType chooseBase = (EstateType)estate;
+
+            string activeItemStr = (string)eSubComboBox.SelectedItem;
+
+            SubTypes chooseSpecific = (SubTypes)Enum.Parse(typeof(SubTypes), activeItemStr);
+
+            Estate estateToAdd = null;
+
+            switch (chooseBase)
+            {
+                case EstateType.Commercial:
+                    switch(chooseSpecific)
+                    {
+                        case SubTypes.Shop:
+
+                            Shop shop = new Shop(txtCV1.Text);
+
+                            shop.ShopeName = txtCV2.Text;
+
+                            shop.Income = new Double();
 
 
+                            
+
+                            break;
+
+                        case SubTypes.Warehouse:
+                            break;
+                    }    
+
+                    break;
+
+                case EstateType.Institutional:
+                    switch(chooseSpecific)
+                    {
+                        case SubTypes.School:
+                            break;
+
+                        case SubTypes.University:
+                            break;
+                    }
+
+                    break;
+
+
+                case EstateType.Residential:
+                    switch(chooseSpecific)
+                    {
+                        case SubTypes.Villa:
+                            break;
+
+                        case SubTypes.Rowhouse:
+                            break;
+
+                        case SubTypes.Rental:
+                            break;
+
+                        case SubTypes.Tenement:
+                            break;
+                    }
+                    break;
+            }
         }
        
 

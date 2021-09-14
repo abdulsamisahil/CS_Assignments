@@ -8,321 +8,213 @@ namespace Real_Estate_Agent
 {
     public partial class mainForm : Form
     {
-        string[] eTypes = new string[] { "Commercial", "Institutional", "Residential" };
 
-        int activeEstateIndex = -1;
-        
-        int activeSubTypeIndex = -1; 
+        private Observable<string> commonVarObservable1 = new Observable<string>(null);
+
+        private Observable<string> commonVarObservable2 = new Observable<string>(null);
+
+        private Observable<string> commonVarObservable3 = new Observable<string>(null);
+
+        private Observable<string> streetObservable = new Observable<string>(null);
+
+        private Observable<string> zipCodeObservable = new Observable<string>(null);
+
+        private Observable<string> cityObservable = new Observable<string>(null);
+
+        private Observable<string> countryObservable = new Observable<string>(null);
+
+        private Observable<string> subTypeObservable = new Observable<string>(null);
+
+        private readonly string[] commercialSubComboboxItems = new string[] { "Shop", "Warehouse" };
+
+        private readonly string[] institutionalSubComboboxItems = new string[] { "School", "University" };
+
+        private readonly string[] residentialSubComboboxItems = new string[] {
+            "Villa",
+            "Rowhouse",
+            "Rental",
+            "Tenement"
+        };
 
         public mainForm()
         {
             InitializeComponent();
 
-            eTypeComboBox.Items.AddRange(eTypes);
+            addTwoWaybindingToTextBox(txtCV1, commonVarObservable1);
 
-            // List<Countries> countriesValues = Enum.GetValues(typeof(Countries)).ToList();
+            addTwoWaybindingToTextBox(txtCV2, commonVarObservable2);
 
-            string[] countriesValues = Enum.GetNames(typeof(Countries));
+            addTwoWaybindingToTextBox(txtCV3, commonVarObservable3);
 
-            countriesComboBox.Items.AddRange(countriesValues);
+            addTwoWaybindingToTextBox(textBox1, streetObservable);
 
+            addTwoWaybindingToTextBox(textBox2, zipCodeObservable);
+
+            addTwoWaybindingToTextBox(textBox3, cityObservable);
+
+            countriesComboBox.Items.AddRange(Utilis.enumToStrArr<Countries>());
+
+            addTwoWayBindingToComboBox(countriesComboBox, countryObservable);
+
+            eTypeComboBox.Items.AddRange(Utilis.enumToStrArr<EstateType>());
+
+            eTypeComboBox.TextChanged += baseTypeUpdater;
+
+            addTwoWayBindingToComboBox(eSubComboBox, subTypeObservable);
+
+            subTypeObservable.listener += subTypeUpdater;
+
+            subTypeObservable.listener += commonVarsLabelsUpdater;
         }
 
-        // Returns the subType array in acccordance to the main 3 categories 
-        private string[] returnSubTypes(int index)
+        private void subTypeUpdater(string value)
         {
-            string[] types = new string[5];
-            
-            switch (index)
+            if (value != null && value != "")
             {
-                case 0:
-                    types = new string[] { "Shop", "Warehouse" };
-                    break;
-                case 1:
-                    types = new string[] { "School", "University" };
-                    break;
-                case 2:
-                    types = new string[] { "Villa", "Rowhouse", "Rental", "Tenement" };
-                    break;
+                SubTypes subType = Utilis.strToEnumValue<SubTypes>(value);
 
-            }
-            return types;
-        }
+                switch(subType)
+                {
+                    case SubTypes.Rental:
+                    case SubTypes.Villa:
+                    case SubTypes.Rowhouse:
+                    case SubTypes.Tenement:
 
-        private void label1_Click(object sender, EventArgs e)
-        {
+                        eTypeComboBox.SelectedItem = EstateType.Residential.ToString();
+                        break;
 
-        }
+                    case SubTypes.Shop:
+                    case SubTypes.Warehouse:
 
-        private void label2_Click(object sender, EventArgs e)
-        {
+                        eTypeComboBox.SelectedItem = EstateType.Commercial.ToString();
+                        break;
 
-        }
+                    case SubTypes.School:
+                    case SubTypes.University:
 
-        private void label3_Click(object sender, EventArgs e)
-        {
+                        eTypeComboBox.SelectedItem = EstateType.Institutional.ToString();
+                        break;
+                }
 
-        }
-
-        private void eTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            activeEstateIndex = eTypeComboBox.SelectedIndex;
-            
-            string[] subTypes = returnSubTypes(activeEstateIndex);
-            eSubComboBox.Items.Clear(); 
-            eSubComboBox.Items.AddRange(subTypes); 
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-            // CommonVar1.Text = "Number of rooms"; 
-        }
-
-        private void CommonVar2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void mainForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblStreet_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void txtCV1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void eSubComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            activeSubTypeIndex = eSubComboBox.SelectedIndex;
-
-
-            switch (activeEstateIndex)
-            {
-                case 0:
-                    setCommonVarsToCommercial(activeSubTypeIndex);
-                    break;
-                case 1:
-                    setCommonVarsToInstitutional(activeSubTypeIndex);
-                    break;
-                case 2:
-                    setCommonVarsResidential(activeSubTypeIndex);
-                    break;
-            }           
-        }
-        
-        private void setCommonVarsResidential(int activeSubTypeIndex)
-        {
-            switch (activeSubTypeIndex)
-            {
-                case 0:
-                    setCommonVarsToVilla();
-                    break;
-                case 1:
-                    setCommonVarsToRowHouse();
-                    break;
-                case 2:
-                    setCommonVarsToRental();
-                    break;
-                case 3:
-                    setCommonVarsToTeneament();
-                    break;
+                eSubComboBox.Text = subType.ToString();
             }
         }
 
-        private void setCommonVarsToInstitutional(int activeSubTypeIndex)
+        private void baseTypeUpdater(object sender, EventArgs e)
         {
-            if (activeSubTypeIndex == 0)
-                setCommonVarsToSchool();
-            else
-                setCommonVarsToUnversity();
-        }
+            string value = (string)eTypeComboBox.SelectedItem;
 
-        private void setCommonVarsToCommercial(int activeSubTypeIndex)
-        {
-            if (activeSubTypeIndex == 0)
-                setCommonVarsToShop();
-            else
-                setCommonVarsToWarehouse();
-        }
-        #region setting labels to their right values 
-        private void setCommonVarsToUnversity()
-        {
-            setCommonVars("Group rooms", "Name", "Library");
-        }
+            EstateType estateType = Utilis.strToEnumValue<EstateType>(value);
 
-        private void setCommonVarsToSchool()
-        {
-            setCommonVars("Type of school", "School name", "Library");
-        }
+            eSubComboBox.SelectedIndex = -1;
 
-        private void setCommonVarsToWarehouse()
-        {
-            setCommonVars("Rating", "Usage", "Income");
-        }
+            eSubComboBox.Items.Clear();
 
-        private void setCommonVarsToShop()
-        {
-            setCommonVars("Shope name", "Usage", "Income");
-        }
-
-        private void setCommonVarsToTeneament()
-        {
-            setCommonVars("Housing association", "Rooms", "Floor");
-        }
-
-        private void setCommonVarsToRental()
-        {
-            setCommonVars("Rent", "Rooms", "floor");
-        }
-
-        private void setCommonVarsToRowHouse()
-        {
-            setCommonVars("Garden", "Rooms", "Floor");
-        }
-
-        private void setCommonVarsToVilla()
-        {
-            setCommonVars("Construction year", "Rooms", "Floor");
-        }
-        #endregion
-
-        private void setCommonVars(string str, string str2, string str3)
-        {   
-            CommonVar1.Text = str;
-            
-            CommonVar2.Text = str2;
-            
-            CommonVar3.Text = str3;
-        }
-
-        private void btnCreate_Click(object sender, EventArgs e)
-        {
-            //Todo: Figure out the user input object, by checking with the EstateType and SubType Enums 
-            //Todo: Once the right input is found out, create the estate object and instantiate it to it's right subtype 
-            //Todo: Call upon Estatehandler and add it to the collection 
-            //Todo: Show it up in the gui listbox, with its full information visible
-        }
-
-        // Creating Estate Object
-
-        private void createEstate(string userInput)
-        {
-
-            int estate = estateIndex();
-
-            EstateType chooseBase = (EstateType)estate;
-
-            string activeItemStr = (string)eSubComboBox.SelectedItem;
-
-            SubTypes chooseSpecific = (SubTypes)Enum.Parse(typeof(SubTypes), activeItemStr);
-
-            Estate estateToAdd = null;
-
-            switch (chooseBase)
+            switch (estateType)
             {
                 case EstateType.Commercial:
-                    switch(chooseSpecific)
-                    {
-                        case SubTypes.Shop:
 
-                            Shop shop = new Shop(txtCV1.Text);
-
-                            shop.ShopeName = txtCV2.Text;
-
-                            shop.Income = new Double();
-
-
-                            
-
-                            break;
-
-                        case SubTypes.Warehouse:
-                            break;
-                    }    
-
+                    eSubComboBox.Items.AddRange(commercialSubComboboxItems);
                     break;
 
                 case EstateType.Institutional:
-                    switch(chooseSpecific)
-                    {
-                        case SubTypes.School:
-                            break;
 
-                        case SubTypes.University:
-                            break;
-                    }
-
+                    eSubComboBox.Items.AddRange(institutionalSubComboboxItems);
                     break;
-
 
                 case EstateType.Residential:
-                    switch(chooseSpecific)
-                    {
-                        case SubTypes.Villa:
-                            break;
-
-                        case SubTypes.Rowhouse:
-                            break;
-
-                        case SubTypes.Rental:
-                            break;
-
-                        case SubTypes.Tenement:
-                            break;
-                    }
+                    
+                    eSubComboBox.Items.AddRange(residentialSubComboboxItems);
                     break;
             }
-        }
-       
 
-        // Estate index returns 
-        private int estateIndex() 
-        {
-            activeEstateIndex = eTypeComboBox.SelectedIndex;
-            return activeEstateIndex; 
+            setCommonVars("CommonVar1", "CommonVar2", "CommonVar3");
         }
-        // Subtype index returns 
-        private int subTypeIndex()
+
+        private void commonVarsLabelsUpdater(string value)
         {
-            activeSubTypeIndex = eSubComboBox.SelectedIndex;
-            return activeSubTypeIndex;
+            if (value != null && value != "")
+            {
+                SubTypes subType = Utilis.strToEnumValue<SubTypes>(value);
+
+                switch (subType)
+                {
+                    case SubTypes.Rental:
+
+                        setCommonVars("Rent", "Rooms", "floor");
+                        break;
+
+                    case SubTypes.Villa:
+
+                        setCommonVars("Construction year", "Rooms", "Floor");
+                        break;
+
+                    case SubTypes.Rowhouse:
+
+                        setCommonVars("Garden", "Rooms", "Floor");
+                        break;
+
+                    case SubTypes.Tenement:
+
+                        setCommonVars("Housing association", "Rooms", "Floor");
+                        break;
+
+                    case SubTypes.Shop:
+
+                        setCommonVars("Shope name", "Usage", "Income");
+                        break;
+
+                    case SubTypes.Warehouse:
+
+                        setCommonVars("Rating", "Usage", "Income");
+                        break;
+
+                    case SubTypes.School:
+
+                        setCommonVars("Type of school", "School name", "Library");
+                        break;
+
+                    case SubTypes.University:
+
+                        setCommonVars("Group rooms", "Name", "Library");
+                        break;
+                }
+            }
+        }
+
+        private void setCommonVars(string str, string str2, string str3)
+        {
+            CommonVar1.Text = str;
+
+            CommonVar2.Text = str2;
+
+            CommonVar3.Text = str3;
+        }
+
+        private void addTwoWaybindingToTextBox(TextBox textBox, Observable<string> observable) 
+        {
+            observable.listener += (string value) =>
+            {
+                textBox.Text = value;
+            };
+
+            textBox.TextChanged += (object sender, EventArgs e) => 
+            {
+                observable.value = textBox.Text;
+            };
+        }
+
+        private void addTwoWayBindingToComboBox(ComboBox comboBox, Observable<string> observable)
+        {
+            observable.listener += (string value) =>
+            {
+                comboBox.SelectedItem = value;
+            };
+
+            comboBox.TextChanged += (object sender, EventArgs e) => 
+            {
+                observable.value = (string)comboBox.SelectedItem;
+            };
         }
     }
 }

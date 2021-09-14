@@ -68,7 +68,6 @@ namespace Real_Estate_Agent
             this.label1.Size = new System.Drawing.Size(254, 35);
             this.label1.TabIndex = 0;
             this.label1.Text = "Register the land";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -81,7 +80,6 @@ namespace Real_Estate_Agent
             this.label2.Size = new System.Drawing.Size(131, 35);
             this.label2.TabIndex = 1;
             this.label2.Text = "Address";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // eTypeComboBox
             // 
@@ -92,7 +90,6 @@ namespace Real_Estate_Agent
             this.eTypeComboBox.Name = "eTypeComboBox";
             this.eTypeComboBox.Size = new System.Drawing.Size(218, 37);
             this.eTypeComboBox.TabIndex = 2;
-            this.eTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.eTypeComboBox_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -102,7 +99,6 @@ namespace Real_Estate_Agent
             this.label3.Size = new System.Drawing.Size(141, 29);
             this.label3.TabIndex = 3;
             this.label3.Text = "Estate Type";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 
@@ -112,7 +108,6 @@ namespace Real_Estate_Agent
             this.label4.Size = new System.Drawing.Size(101, 29);
             this.label4.TabIndex = 4;
             this.label4.Text = "Subtype";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // eSubComboBox
             // 
@@ -121,7 +116,6 @@ namespace Real_Estate_Agent
             this.eSubComboBox.Name = "eSubComboBox";
             this.eSubComboBox.Size = new System.Drawing.Size(218, 37);
             this.eSubComboBox.TabIndex = 5;
-            this.eSubComboBox.SelectedIndexChanged += new System.EventHandler(this.eSubComboBox_SelectedIndexChanged);
             // 
             // CommonVar1
             // 
@@ -131,7 +125,6 @@ namespace Real_Estate_Agent
             this.CommonVar1.Size = new System.Drawing.Size(160, 29);
             this.CommonVar1.TabIndex = 6;
             this.CommonVar1.Text = "CommonVar1";
-            this.CommonVar1.Click += new System.EventHandler(this.label5_Click);
             // 
             // txtCV1
             // 
@@ -139,7 +132,6 @@ namespace Real_Estate_Agent
             this.txtCV1.Name = "txtCV1";
             this.txtCV1.Size = new System.Drawing.Size(218, 35);
             this.txtCV1.TabIndex = 7;
-            this.txtCV1.TextChanged += new System.EventHandler(this.txtCV1_TextChanged);
             // 
             // CommonVar2
             // 
@@ -149,7 +141,6 @@ namespace Real_Estate_Agent
             this.CommonVar2.Size = new System.Drawing.Size(160, 29);
             this.CommonVar2.TabIndex = 8;
             this.CommonVar2.Text = "CommonVar2";
-            this.CommonVar2.Click += new System.EventHandler(this.CommonVar2_Click);
             // 
             // CommonVar3
             // 
@@ -184,7 +175,6 @@ namespace Real_Estate_Agent
             this.btnCreate.TabIndex = 12;
             this.btnCreate.Text = "Create";
             this.btnCreate.UseVisualStyleBackColor = false;
-            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
             // 
             // listView1
             // 
@@ -195,7 +185,6 @@ namespace Real_Estate_Agent
             this.listView1.Size = new System.Drawing.Size(480, 193);
             this.listView1.TabIndex = 13;
             this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // btnDelete
             // 
@@ -237,7 +226,6 @@ namespace Real_Estate_Agent
             this.lblStreet.Size = new System.Drawing.Size(77, 29);
             this.lblStreet.TabIndex = 17;
             this.lblStreet.Text = "Street";
-            this.lblStreet.Click += new System.EventHandler(this.lblStreet_Click);
             // 
             // lblZipCode
             // 
@@ -248,7 +236,6 @@ namespace Real_Estate_Agent
             this.lblZipCode.Size = new System.Drawing.Size(114, 29);
             this.lblZipCode.TabIndex = 18;
             this.lblZipCode.Text = "ZIP Code";
-            this.lblZipCode.Click += new System.EventHandler(this.label6_Click);
             // 
             // lblCity
             // 
@@ -259,7 +246,6 @@ namespace Real_Estate_Agent
             this.lblCity.Size = new System.Drawing.Size(53, 29);
             this.lblCity.TabIndex = 19;
             this.lblCity.Text = "City";
-            this.lblCity.Click += new System.EventHandler(this.label7_Click);
             // 
             // lblCountry
             // 
@@ -287,7 +273,6 @@ namespace Real_Estate_Agent
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(146, 35);
             this.textBox2.TabIndex = 22;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // textBox3
             // 
@@ -305,7 +290,6 @@ namespace Real_Estate_Agent
             this.countriesComboBox.Name = "countriesComboBox";
             this.countriesComboBox.Size = new System.Drawing.Size(146, 37);
             this.countriesComboBox.TabIndex = 24;
-            this.countriesComboBox.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // mainForm
             // 
@@ -345,7 +329,6 @@ namespace Real_Estate_Agent
             this.Name = "mainForm";
             this.Text = "Real Estate Agent";
             this.TransparencyKey = System.Drawing.Color.Fuchsia;
-            this.Load += new System.EventHandler(this.mainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

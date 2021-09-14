@@ -14,7 +14,7 @@ namespace Real_Estate_Agent.Program.Main
         Commercial, 
         Institutional, 
         Residential
-       
+          
     }
 
     public enum SubTypes

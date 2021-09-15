@@ -109,7 +109,7 @@ namespace Real_Estate_Agent
             eSubComboBox.SelectedIndex = -1;
 
             eSubComboBox.Items.Clear();
-
+            
             switch (estateType)
             {
                 case EstateType.Commercial:
@@ -215,6 +215,28 @@ namespace Real_Estate_Agent
             {
                 observable.value = (string)comboBox.SelectedItem;
             };
+        }
+
+        private void btnCreate_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Hi Object! ");
+
+            //Todo: Figure out the user input object, by checking with the EstateType and SubType Enums 
+            //Todo: Once the right input is found out, create the estate object and instantiate it to it's right subtype 
+            //Todo: Call upon Estatehandler and add it to the collection 
+            //Todo: Show it up in the gui listbox, with its full information visible
+
+
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void eTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -45,7 +45,7 @@ namespace Real_Estate_Agent.Program.Main
         private bool checkIndexValidation(int index)
         {
             bool ok = false;
-            if ((index >= 0) && (index <= estateList.Count))
+            if ((index >= 0) && (index < estateList.Count))
                 ok = true;
             return ok; 
         }

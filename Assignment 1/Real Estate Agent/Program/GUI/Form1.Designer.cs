@@ -90,6 +90,7 @@ namespace Real_Estate_Agent
             this.eTypeComboBox.Name = "eTypeComboBox";
             this.eTypeComboBox.Size = new System.Drawing.Size(218, 37);
             this.eTypeComboBox.TabIndex = 2;
+            this.eTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.eTypeComboBox_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -175,6 +176,7 @@ namespace Real_Estate_Agent
             this.btnCreate.TabIndex = 12;
             this.btnCreate.Text = "Create";
             this.btnCreate.UseVisualStyleBackColor = false;
+            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
             // 
             // listView1
             // 
@@ -185,6 +187,7 @@ namespace Real_Estate_Agent
             this.listView1.Size = new System.Drawing.Size(480, 193);
             this.listView1.TabIndex = 13;
             this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // btnDelete
             // 

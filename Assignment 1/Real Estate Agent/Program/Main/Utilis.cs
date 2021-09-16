@@ -34,5 +34,37 @@ namespace Real_Estate_Agent.Program.Main
                 throw new Exception("enumType argument must be a enum");
             }
         }
+
+        public static bool isValidStr(string str)
+        {
+
+            return str != null && str != "";
+        }
+
+        public static bool isSubTypeResidential(SubTypes subType)
+        {
+            return (
+                SubTypes.Rental == subType
+                || SubTypes.Rental == subType
+                || SubTypes.Rowhouse == subType
+                || SubTypes.Tenement == subType
+            );
+        }
+
+        public static bool isSubTypeInstitutional(SubTypes subType)
+        {
+            return (
+                SubTypes.School == subType
+                || SubTypes.University == subType
+            );
+        }
+
+        public static bool isSubTypeCommercial(SubTypes subType)
+        {
+            return (
+                SubTypes.Shop == subType
+                || SubTypes.Warehouse == subType
+            );
+        }
     }
 }

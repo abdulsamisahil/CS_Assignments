@@ -68,12 +68,49 @@ namespace Real_Estate_Agent
 
             subTypeObservable.listener += commonVarsLabelsUpdater;
 
-            estateHandler.observableList.listener += updateGui; 
+            subTypeObservable.listener += imageUpdater;
+
+            estateHandler.observableList.listener += updateListView; 
+        }
+
+        private void imageUpdater(string value)
+        {
+            if (Utilis.isValidStr(value))
+            {
+                SubTypes subType = Utilis.strToEnumValue<SubTypes>(value);
+
+                switch(subType)
+                {
+                    case SubTypes.Shop:
+                        break;
+
+                    case SubTypes.Warehouse:
+                        break;
+        
+                    case SubTypes.School:
+                        break;
+
+                    case SubTypes.University:
+                        break;
+
+                    case SubTypes.Villa:
+                        break;
+
+                    case SubTypes.Rowhouse:
+                        break;
+
+                    case SubTypes.Rental:
+                        break;
+
+                    case SubTypes.Tenement:
+                        break;
+                }
+            }
         }
 
         private void subTypeUpdater(string value)
         {
-            if (value != null && value != "")
+            if (Utilis.isValidStr(value))
             {
                 SubTypes subType = Utilis.strToEnumValue<SubTypes>(value);
 
@@ -108,7 +145,7 @@ namespace Real_Estate_Agent
         {
             string value = (string)eTypeComboBox.SelectedItem;
 
-            if (value != "" && value != null)
+            if (Utilis.isValidStr(value))
             {
                 EstateType estateType = Utilis.strToEnumValue<EstateType>(value);
 
@@ -138,54 +175,88 @@ namespace Real_Estate_Agent
             }
         }
 
+
+
         private void commonVarsLabelsUpdater(string value)
         {
-            if (value != null && value != "")
+            if (Utilis.isValidStr(value))
             {
                 SubTypes subType = Utilis.strToEnumValue<SubTypes>(value);
 
-                switch (subType)
+
+
+                string commonvar1 = "";
+
+                string commonvar2 = "";
+
+                string commonvar3 = "";
+
+
+
+                if (Utilis.isSubTypeResidential(subType)) 
                 {
-                    case SubTypes.Rental:
+                    commonvar2 = "Rooms";
 
-                        setCommonVars("Rent", "Rooms", "floor");
-                        break;
-
-                    case SubTypes.Villa:
-
-                        setCommonVars("Construction year", "Rooms", "Floor");
-                        break;
-
-                    case SubTypes.Rowhouse:
-
-                        setCommonVars("Garden", "Rooms", "Floor");
-                        break;
-
-                    case SubTypes.Tenement:
-
-                        setCommonVars("Housing association", "Rooms", "Floor");
-                        break;
-
-                    case SubTypes.Shop:
-
-                        setCommonVars("Shope name", "Usage", "Income");
-                        break;
-
-                    case SubTypes.Warehouse:
-
-                        setCommonVars("Rating", "Usage", "Income");
-                        break;
-
-                    case SubTypes.School:
-
-                        setCommonVars("Type of school", "School name", "Library");
-                        break;
-
-                    case SubTypes.University:
-
-                        setCommonVars("Group rooms", "Name", "Library");
-                        break;
+                    commonvar3 = "flor";
                 }
+
+                if (Utilis.isSubTypeCommercial(subType))
+                {
+                    commonvar2 = "Usage";
+
+                    commonvar3 = "Income";
+                }
+
+                if (Utilis.isSubTypeInstitutional(subType))
+                {
+                    commonvar2 = "Name";
+
+                    commonvar3 = "Library";
+                }
+
+
+
+                if (SubTypes.Rental == subType)
+                {
+                    commonvar1 = "Rent";
+                }
+
+                if (SubTypes.Villa == subType)
+                {
+                    commonvar1 = "Construction year";
+                }
+
+                if (SubTypes.Rowhouse == subType)
+                {
+                    commonvar1 = "Garden";
+                }
+
+                if (SubTypes.Tenement == subType)
+                {
+                    commonvar1 = "Housing association";
+                }
+
+                if (SubTypes.Shop == subType) 
+                {
+                    commonvar1 = "Shope name";
+                }
+
+                if (SubTypes.Warehouse == subType)
+                {
+                    commonvar1 = "Rating";
+                }
+
+                if (SubTypes.School == subType)
+                {
+                    commonvar1 = "Type of school";
+                }
+
+                if (SubTypes.University == subType)
+                {
+                    commonvar1 = "Group rooms";
+                }
+
+                setCommonVars(commonvar1, commonvar2, commonvar3);
             }
         }
 
@@ -197,6 +268,8 @@ namespace Real_Estate_Agent
 
             CommonVar3.Text = str3;
         }
+
+
 
         private void addTwoWaybindingToTextBox(TextBox textBox, Observable<string> observable) 
         {
@@ -224,173 +297,250 @@ namespace Real_Estate_Agent
             };
         }
 
-        private Estate createEstate()
+
+
+        private void btnDelete_Click(object sender, EventArgs e)
         {
-            Estate estate = null;
 
-            if (subTypeObservable.value != "" && subTypeObservable.value != null) 
+            foreach (int index in listView1.SelectedIndices)
             {
-                SubTypes subType = Utilis.strToEnumValue<SubTypes>(subTypeObservable.value);
-
-                switch(subType)
-                {
-                    case SubTypes.Rental:
-
-                        // setCommonVars("Rent", "Rooms", "floor");
-
-                        double rent = double.Parse(commonVarObservable1.value);
-
-                        int rooms = int.Parse(commonVarObservable2.value);
-
-                        int floor = int.Parse(commonVarObservable3.value);
-
-                        Rental rental = new Rental();
-                        rental.Rent = rent;
-                        rental.NumberOfRooms = rooms;
-                        rental.Floor = floor; 
-
-                        estate = rental;
-
-                       // updateGUI(); 
-                        break;
-
-                    case SubTypes.Rowhouse:
-                        bool garden = bool.Parse(commonVarObservable1.value);
-                        bool basement = bool.Parse(commonVarObservable2.value);
-                        int constructionYear = int.Parse(commonVarObservable3.value);
-
-                        Rowhouse rowhouse = new Rowhouse();
-                        rowhouse.Garden = garden;
-                        rowhouse.Basement = basement;
-                        rowhouse.ConstructionYear = constructionYear; 
-
-                        estate = rowhouse;
-                     
-                        break;
-
-                    case SubTypes.School:
-                        string schoolType = commonVarObservable1.value;
-                        string schoolName = commonVarObservable2.value;
-                        bool lib = bool.Parse(commonVarObservable3.value);
-
-                        School school = new School();
-                        school.TypeOfSchool = schoolType; 
-                        school.Name = schoolName;
-                        school.Library = lib; 
-                        estate = school;
-                     
-                        break;
-
-                    case SubTypes.Shop:
-                        string shopName = commonVarObservable1.value;
-                        string usage = commonVarObservable2.value;
-                        double income = double.Parse(commonVarObservable3.value);
-
-                        Shop shop = new Shop();
-                        shop.ShopeName= shopName;
-                        shop.Usage = usage;
-                        shop.Income = income; 
-
-                        estate = shop;
-                       
-
-                        // updateGui();
-                        break;
-
-                    case SubTypes.Tenement:
-                        string housingA = commonVarObservable1.value;
-                        int ro = int.Parse(commonVarObservable2.value);
-                        int floo = int.Parse(commonVarObservable3.value);
-
-                        Tenement tenement = new Tenement();
-                        tenement.HousingAssociation = housingA;
-                        tenement.NumberOfRooms = ro;
-                        tenement.Floor = floo; 
-                        estate = tenement;
-                      
-
-                        // updateGui();
-
-                        break;
-
-                    case SubTypes.University:
-                        string univName = commonVarObservable2.value;
-                        int nbrOfGrooms = int.Parse(commonVarObservable1.value);
-                        bool library = bool.Parse(commonVarObservable3.value);
-
-                        University university = new University();
-                        university.Name = univName;
-                        university.NbrOfGroupRooms = nbrOfGrooms; 
-                        university.Library= library;
-                        estate = university;
-                   
-                        break;
-
-                    case SubTypes.Villa:
-                        int roms = int.Parse(commonVarObservable1.value);
-                        int flor = int.Parse(commonVarObservable2.value);
-                        int cy = int.Parse(commonVarObservable3.value);
-
-                        Villa villa = new Villa();
-                        villa.NumberOfRooms = roms;
-                        villa.Floor = flor; 
-                        villa.ConstructionYear = cy; 
-
-                        estate = villa;
-                       
-                        break;
-
-                    case SubTypes.Warehouse:
-                        double ratings = double.Parse(commonVarObservable1.value);
-                        string useag = commonVarObservable2.value;
-                        double inc = double.Parse(commonVarObservable3.value);
-
-                        Warehouse warehouse = new Warehouse();
-                        warehouse.Rating = ratings;
-                        warehouse.Usage = useag;
-                        warehouse.Income = inc; 
-
-                        estate = warehouse;
-
-                        
-
-                        break;
-                }
-                setAdress(estate);
-               
+                estateHandler.removeEstateAt(index);
             }
-            return estate;
         }
 
-        // setting the address of the estate 
-        private void setAdress(Estate obj)
+        private void Change_Click(object sender, EventArgs e)
         {
-            
-                Address addr = new Address
+            /*
+            foreach (int index in listView1.SelectedItems)
             {
-                zip_code = zipCodeObservable.value,
-                street = streetObservable.value,
-                city = cityObservable.value,
-                
-                country = Utilis.strToEnumValue<Countries>(countryObservable.value)
-            };
-            obj.Address = addr; 
+                Estate estate = createEstate();
+
+                estateHandler.changeEstate(index, estate);
+            }
+            */
         }
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
+            if (hasValidProperties())
+            {
+                Estate estate = createEstate();
 
-            Estate obj = createEstate();
-            estateHandler.addEstate(obj); 
-           
+                estateHandler.addEstate(estate);
+            }
         }
 
-        private void updateGui(List<Estate> list)
+        private Estate createEstate()
         {
-            // Estate[] estateList = list.ToArray(); 
+            Estate estate = null;
 
-            //  ListViewItem[] listViewItems = new ListViewItem[list.Count];
+            SubTypes subType = Utilis.strToEnumValue<SubTypes>(subTypeObservable.value);
 
+
+
+            int rooms = 0;
+
+            int flor = 0;
+
+            if (Utilis.isSubTypeResidential(subType))
+            {
+                rooms = int.Parse(commonVarObservable2.value);
+
+                flor = int.Parse(commonVarObservable3.value);
+            }
+
+
+
+            string usage = "";
+
+            double income = 0;
+
+            if (Utilis.isSubTypeCommercial(subType))
+            {
+                usage = commonVarObservable2.value;
+
+                income = double.Parse(commonVarObservable3.value);
+            }
+
+
+
+            string name = "";
+
+            bool hasLibrary = false;
+
+            if (Utilis.isSubTypeInstitutional(subType))
+            {
+                name = commonVarObservable2.value;
+
+                hasLibrary = bool.Parse(commonVarObservable3.value);
+            }
+
+
+
+            if (SubTypes.Rental == subType)
+            {
+                double rent = double.Parse(commonVarObservable1.value);
+
+                Rental rental = new Rental();
+
+                rental.Rent = rent;
+
+                rental.NumberOfRooms = rooms;
+
+                rental.Floor = flor;
+
+                estate = rental;
+            }
+
+            if (SubTypes.Villa == subType)
+            {
+                int constructionYear = int.Parse(commonVarObservable1.value);
+
+                Villa villa = new Villa();
+
+                villa.NumberOfRooms = rooms;
+
+                villa.Floor = flor;
+
+                villa.ConstructionYear = constructionYear;
+
+                estate = villa;
+            }
+
+            if (SubTypes.Rowhouse == subType)
+            {
+                bool hasGarden = bool.Parse(commonVarObservable1.value);
+
+                Rowhouse rowhouse = new Rowhouse();
+
+                rowhouse.Garden = hasGarden;
+
+                rowhouse.NumberOfRooms = rooms;
+
+                rowhouse.Floor = flor;
+            }
+
+            if (SubTypes.Tenement == subType)
+            {
+                string housingAssociation = commonVarObservable1.value;
+
+                Tenement tenement = new Tenement();
+
+                tenement.HousingAssociation = housingAssociation;
+
+                tenement.NumberOfRooms = rooms;
+
+                tenement.Floor = flor;
+
+                estate = tenement;
+            }
+
+            if (SubTypes.Shop == subType)
+            {
+                string shopName = commonVarObservable1.value;
+
+                Shop shop = new Shop();
+
+                shop.ShopeName = shopName;
+
+                shop.Usage = usage;
+
+                shop.Income = income;
+
+                estate = shop;
+            }
+
+            if (SubTypes.Warehouse == subType)
+            {
+                double rating = double.Parse(commonVarObservable1.value);
+
+                Warehouse warehouse = new Warehouse();
+
+                warehouse.Rating = rating;
+
+                warehouse.Usage = usage;
+
+                warehouse.Income = income;
+
+                estate = warehouse;
+            }
+
+            if (SubTypes.School == subType)
+            {
+                string typeOfSchool = commonVarObservable1.value;
+
+                School school = new School();
+
+                school.TypeOfSchool = typeOfSchool;
+
+                school.Name = name;
+
+                school.Library = hasLibrary;
+
+                estate = school;
+            }
+
+            if (SubTypes.University == subType)
+            {
+                int nbrOfGroupRooms = int.Parse(commonVarObservable1.value);
+
+                University university = new University();
+
+                university.Name = name;
+
+                university.NbrOfGroupRooms = nbrOfGroupRooms;
+
+                university.Library = hasLibrary;
+
+                estate = university;
+            }
+
+            setAdress(estate);
+
+            return estate;
+        }
+
+        private void setAdress(Estate estate)
+        {
+
+            Address addr = new Address
+            {
+                zip_code = zipCodeObservable.value,
+                street = streetObservable.value,
+                city = cityObservable.value,
+
+                country = Utilis.strToEnumValue<Countries>(countryObservable.value)
+            };
+
+            estate.Address = addr;
+        }
+
+
+
+        private bool hasValidProperties()
+        {
+            return (
+                
+                Utilis.isValidStr(subTypeObservable.value)
+                
+                && Utilis.isValidStr(countryObservable.value)
+                
+                && Utilis.isValidStr(commonVarObservable1.value)
+                
+                && Utilis.isValidStr(commonVarObservable2.value)
+                
+                && Utilis.isValidStr(commonVarObservable3.value)
+                
+                && Utilis.isValidStr(streetObservable.value)
+                
+                && Utilis.isValidStr(zipCodeObservable.value)
+                
+                && Utilis.isValidStr(cityObservable.value)
+            );
+        }
+
+        private void updateListView(List<Estate> list)
+        {
             listView1.Items.Clear(); 
 
             List<ListViewItem> listViewItems = new List<ListViewItem>(); 
@@ -398,45 +548,13 @@ namespace Real_Estate_Agent
             foreach(Estate lis in list )
             {
                 ListViewItem item = new ListViewItem();
+                
                 item.Text = lis.ToString();
+                
                 listViewItems.Add(item); 
             }
+
             listView1.Items.AddRange(listViewItems.ToArray()); 
         }
-
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-
-            foreach (int index in listView1.SelectedIndices)
-            {
-                estateHandler.removeEstateAt(index); 
-            }
-
-
-            // This works as well
-
-            //if (listView1.SelectedItems.Count > 0)
-            //{
-            //    int index = -1;
-            //    for (int i = 0; i < listView1.Items.Count; i++)
-            //    {
-            //        if(listView1.Items[i].Selected == true)
-            //        {
-            //            index = i;
-            //            estateHandler.removeEstateAt(index); 
-            //            break; 
-            //        }
-            //    }
-            //}
-
-        }
-
-        private void Change_Click(object sender, EventArgs e)
-        {
-
-        }
     }
-
-
-
 }

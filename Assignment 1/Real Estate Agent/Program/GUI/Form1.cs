@@ -139,6 +139,14 @@ namespace Real_Estate_Agent
 
                 eSubComboBox.Text = subType.ToString();
             }
+            else
+            {
+                eTypeComboBox.SelectedIndex = -1;
+
+                eSubComboBox.SelectedIndex = -1;
+
+                eSubComboBox.Items.Clear();
+            }
         }
 
         private void baseTypeUpdater(object sender, EventArgs e)
@@ -299,6 +307,23 @@ namespace Real_Estate_Agent
 
 
 
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listView1.SelectedIndices.Count == 1) 
+            {
+                int index = 0;
+
+                foreach (int i in listView1.SelectedIndices)
+                {
+                    index = i;
+                }
+
+                Estate estate = estateHandler.findEstateAt(index);
+
+
+            }
+        }
+
         private void btnDelete_Click(object sender, EventArgs e)
         {
 
@@ -306,7 +331,23 @@ namespace Real_Estate_Agent
             {
                 estateHandler.removeEstateAt(index);
             }
-        }
+
+            commonVarObservable1.value = null;
+
+            commonVarObservable2.value = null;
+
+            commonVarObservable3.value = null;
+
+            streetObservable.value = null;
+
+            zipCodeObservable.value = null;
+
+            cityObservable.value = null;
+
+            subTypeObservable.value = null;
+
+            countryObservable.value = null;
+    }
 
         private void Change_Click(object sender, EventArgs e)
         {
@@ -548,7 +589,7 @@ namespace Real_Estate_Agent
             foreach(Estate lis in list )
             {
                 ListViewItem item = new ListViewItem();
-                
+
                 item.Text = lis.ToString();
                 
                 listViewItems.Add(item); 

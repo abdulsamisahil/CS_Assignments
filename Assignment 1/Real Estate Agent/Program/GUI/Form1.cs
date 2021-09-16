@@ -1,7 +1,7 @@
 ﻿using System;
-
+using System.Collections.Generic;
 using System.Windows.Forms;
-
+using System.Linq; 
 using Real_Estate_Agent.Program.Main;
 
 namespace Real_Estate_Agent
@@ -67,6 +67,8 @@ namespace Real_Estate_Agent
             subTypeObservable.listener += subTypeUpdater;
 
             subTypeObservable.listener += commonVarsLabelsUpdater;
+
+            estateHandler.observableList.listener += updateGui; 
         }
 
         private void subTypeUpdater(string value)
@@ -242,38 +244,199 @@ namespace Real_Estate_Agent
 
                         int floor = int.Parse(commonVarObservable3.value);
 
-                        // Rental rental = new Rental();
-
                         Rental rental = new Rental();
+                        rental.Rent = rent;
+                        rental.NumberOfRooms = rooms;
+                        rental.Floor = floor; 
 
                         estate = rental;
 
+                       // updateGUI(); 
                         break;
 
                     case SubTypes.Rowhouse:
+                        bool garden = bool.Parse(commonVarObservable1.value);
+                        bool basement = bool.Parse(commonVarObservable2.value);
+                        int constructionYear = int.Parse(commonVarObservable3.value);
+
+                        Rowhouse rowhouse = new Rowhouse();
+                        rowhouse.Garden = garden;
+                        rowhouse.Basement = basement;
+                        rowhouse.ConstructionYear = constructionYear; 
+
+                        estate = rowhouse;
+                     
                         break;
 
                     case SubTypes.School:
+                        string schoolType = commonVarObservable1.value;
+                        string schoolName = commonVarObservable2.value;
+                        bool lib = bool.Parse(commonVarObservable3.value);
+
+                        School school = new School();
+                        school.TypeOfSchool = schoolType; 
+                        school.Name = schoolName;
+                        school.Library = lib; 
+                        estate = school;
+                     
                         break;
 
                     case SubTypes.Shop:
+                        string shopName = commonVarObservable1.value;
+                        string usage = commonVarObservable2.value;
+                        double income = double.Parse(commonVarObservable3.value);
+
+                        Shop shop = new Shop();
+                        shop.ShopeName= shopName;
+                        shop.Usage = usage;
+                        shop.Income = income; 
+
+                        estate = shop;
+                       
+
+                        // updateGui();
                         break;
 
                     case SubTypes.Tenement:
+                        string housingA = commonVarObservable1.value;
+                        int ro = int.Parse(commonVarObservable2.value);
+                        int floo = int.Parse(commonVarObservable3.value);
+
+                        Tenement tenement = new Tenement();
+                        tenement.HousingAssociation = housingA;
+                        tenement.NumberOfRooms = ro;
+                        tenement.Floor = floo; 
+                        estate = tenement;
+                      
+
+                        // updateGui();
+
                         break;
 
                     case SubTypes.University:
+                        string univName = commonVarObservable2.value;
+                        int nbrOfGrooms = int.Parse(commonVarObservable1.value);
+                        bool library = bool.Parse(commonVarObservable3.value);
+
+                        University university = new University();
+                        university.Name = univName;
+                        university.NbrOfGroupRooms = nbrOfGrooms; 
+                        university.Library= library;
+                        estate = university;
+                   
                         break;
 
                     case SubTypes.Villa:
+                        int roms = int.Parse(commonVarObservable1.value);
+                        int flor = int.Parse(commonVarObservable2.value);
+                        int cy = int.Parse(commonVarObservable3.value);
+
+                        Villa villa = new Villa();
+                        villa.NumberOfRooms = roms;
+                        villa.Floor = flor; 
+                        villa.ConstructionYear = cy; 
+
+                        estate = villa;
+                       
                         break;
 
                     case SubTypes.Warehouse:
+                        double ratings = double.Parse(commonVarObservable1.value);
+                        string useag = commonVarObservable2.value;
+                        double inc = double.Parse(commonVarObservable3.value);
+
+                        Warehouse warehouse = new Warehouse();
+                        warehouse.Rating = ratings;
+                        warehouse.Usage = useag;
+                        warehouse.Income = inc; 
+
+                        estate = warehouse;
+
+                        
+
                         break;
                 }
+                setAdress(estate);
+               
             }
-
             return estate;
         }
+
+        // setting the address of the estate 
+        private void setAdress(Estate obj)
+        {
+            
+                Address addr = new Address
+            {
+                zip_code = zipCodeObservable.value,
+                street = streetObservable.value,
+                city = cityObservable.value,
+                
+                country = Utilis.strToEnumValue<Countries>(countryObservable.value)
+            };
+            obj.Address = addr; 
+        }
+
+        private void btnCreate_Click(object sender, EventArgs e)
+        {
+
+            Estate obj = createEstate();
+            estateHandler.addEstate(obj); 
+           
+        }
+
+        private void updateGui(List<Estate> list)
+        {
+            // Estate[] estateList = list.ToArray(); 
+
+            //  ListViewItem[] listViewItems = new ListViewItem[list.Count];
+
+            listView1.Items.Clear(); 
+
+            List<ListViewItem> listViewItems = new List<ListViewItem>(); 
+
+            foreach(Estate lis in list )
+            {
+                ListViewItem item = new ListViewItem();
+                item.Text = lis.ToString();
+                listViewItems.Add(item); 
+            }
+            listView1.Items.AddRange(listViewItems.ToArray()); 
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+
+            foreach (int index in listView1.SelectedIndices)
+            {
+                estateHandler.removeEstateAt(index); 
+            }
+
+
+            // This works as well
+
+            //if (listView1.SelectedItems.Count > 0)
+            //{
+            //    int index = -1;
+            //    for (int i = 0; i < listView1.Items.Count; i++)
+            //    {
+            //        if(listView1.Items[i].Selected == true)
+            //        {
+            //            index = i;
+            //            estateHandler.removeEstateAt(index); 
+            //            break; 
+            //        }
+            //    }
+            //}
+
+        }
+
+        private void Change_Click(object sender, EventArgs e)
+        {
+
+        }
     }
+
+
+
 }

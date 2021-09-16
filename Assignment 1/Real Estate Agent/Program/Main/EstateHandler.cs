@@ -12,12 +12,14 @@ namespace Real_Estate_Agent.Program.Main
     class EstateHandler
     {
         // Estate objects collection 
-        private List<Estate> estateList; 
+        private List<Estate> estateList;
+        public readonly Observable<List<Estate>> observableList; 
 
         //Constructor 
         public EstateHandler() 
         {
-            estateList = new List<Estate>(); 
+            estateList = new List<Estate>();
+            observableList = new Observable<List<Estate>>(estateList); 
         }
 
 
@@ -27,6 +29,7 @@ namespace Real_Estate_Agent.Program.Main
             if (obj != null)
             {
                 estateList.Add(obj);
+                observableList.value = estateList; 
             }
         }
 
@@ -36,6 +39,7 @@ namespace Real_Estate_Agent.Program.Main
             if(checkIndexValidation(index))
             {
                 estateList.RemoveAt(index);
+                observableList.value = estateList; 
             }
         }
 
@@ -56,6 +60,8 @@ namespace Real_Estate_Agent.Program.Main
             if (obj != null && checkIndexValidation(index)) 
             {
                 estateList[index] = obj;
+                observableList.value = estateList;
+
             }
         }
 
@@ -64,6 +70,8 @@ namespace Real_Estate_Agent.Program.Main
         {
             return (index >= 0) && (index < estateList.Count);
         }
+
+        
     }
 
 }

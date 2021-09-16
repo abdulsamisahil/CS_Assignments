@@ -14,16 +14,15 @@ namespace Real_Estate_Agent
     {
         //Common vars for all subs 
         
-        private Address address;
-         
-
-
+        private  Address address;
+        private string id; 
 
         // Constructor 
-        public Estate(string id, Address address) 
+        public Estate(string Id, Address address) 
         {
             id = Id;
             this.address = address; 
+         
         }
 
 
@@ -35,26 +34,18 @@ namespace Real_Estate_Agent
         #region properties 
         public string Id 
         {
-            get { return Id;  } 
-            set
-            {
-                if (Id != null)
-                    Id = value; 
-            }
-        }
-       
-
-        Address IEstate.Address 
-        {
             get; set; 
         }
 
+
+        //Address IEstate.Address
+        //{
+        //    get; set;
+        //}
+
         public Address Address
         {
-            get => default;
-            set
-            {
-            }
+            get; set; 
         }
 
         //internal Address Address

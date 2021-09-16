@@ -12,7 +12,12 @@ namespace Real_Estate_Agent
         private string typeOfSchool; 
 
         // Constructor 
-        public School(string type, string name, bool library) : base(name, library)
+
+        public School()
+        {
+
+        }
+        public School(string type) : base()
         {
             this.typeOfSchool = type; 
         }

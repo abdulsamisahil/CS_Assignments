@@ -11,7 +11,7 @@ namespace Real_Estate_Agent
         private double rating; 
 
         // Constructor 
-
+        public Warehouse() { }
         public Warehouse(double rating) : base()
         {
             this.rating = rating; 

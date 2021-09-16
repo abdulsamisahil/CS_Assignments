@@ -12,6 +12,8 @@ namespace Real_Estate_Agent
         private string shopeName; 
           
         // Constructor 
+
+        public Shop() { }
         public Shop(string shopeName) : base()
         {
             this.shopeName = shopeName;

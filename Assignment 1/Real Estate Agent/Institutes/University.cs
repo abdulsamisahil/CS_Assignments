@@ -14,10 +14,12 @@ namespace Real_Estate_Agent
 
 
         // Constructor 
-        public University(int nbrOfGroupRooms, string name, bool library) : base(name, library)
+        public University(int nbrOfGroupRooms) : base()
         {
             this.nbrOfGroupRooms = nbrOfGroupRooms; 
         }
+
+        public University() { }
 
         // Property
 

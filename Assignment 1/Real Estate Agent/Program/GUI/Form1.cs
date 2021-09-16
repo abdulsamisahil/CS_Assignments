@@ -351,14 +351,12 @@ namespace Real_Estate_Agent
 
         private void Change_Click(object sender, EventArgs e)
         {
-            /*
-            foreach (int index in listView1.SelectedItems)
+            foreach (int index in listView1.SelectedIndices)
             {
                 Estate estate = createEstate();
 
                 estateHandler.changeEstate(index, estate);
             }
-            */
         }
 
         private void btnCreate_Click(object sender, EventArgs e)

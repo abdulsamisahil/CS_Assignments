@@ -5,24 +5,25 @@ using System.Text;
 
 namespace Real_Estate_Agent
 {
-
-   
     public abstract class Residential : Estate
     {
-        private double numberOfRooms;
+        private int numberOfRooms;
+        
         private int floor;
 
+        public Residential() { }
 
         // Constructor 
-        public Residential(double r, int f)
+        public Residential(int r, int f)
         {
-            this.numberOfRooms = r;
-            this.floor = f; 
-        }
-        public Residential()
-        {
+            numberOfRooms = r;
 
+            floor = f; 
         }
+
+        public int NumberOfRooms { get; set; }
+
+        public int Floor { get; set; }
 
         public override double calculateArea()
         {

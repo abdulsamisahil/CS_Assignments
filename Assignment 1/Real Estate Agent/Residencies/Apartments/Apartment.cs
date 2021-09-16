@@ -11,7 +11,9 @@ namespace Real_Estate_Agent
 
         // Constructor
 
-        public Apartment(bool balcony, int rooms, int floor) : base(rooms, floor)
+        public Apartment() {}
+
+        public Apartment(bool balcony) : base()
         {
             this.balcony = balcony; 
         }

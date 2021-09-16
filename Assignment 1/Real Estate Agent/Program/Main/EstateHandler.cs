@@ -22,32 +22,47 @@ namespace Real_Estate_Agent.Program.Main
 
 
         // Adding an estate object 
-        private void addEstate (Estate obj)
+        public void addEstate (Estate obj)
         {
             if (obj != null)
-                estateList.Add(obj); 
+            {
+                estateList.Add(obj);
+            }
         }
 
         // Removing an estate object from the list 
-        private void removeEstateAt(int index)
+        public void removeEstateAt(int index)
         {
             if(checkIndexValidation(index))
+            {
                 estateList.RemoveAt(index);
+            }
+        }
+
+        // Finds an estate object
+        public Estate findEstateAt(int index) 
+        {
+            if (checkIndexValidation(index))
+            {
+                return estateList.ElementAt(index);
+            }
+
+            return null;
         }
 
         // Changing an estate object in the collection 
-        private void changeEstate(int index)
+        public void changeEstate(int index, Estate obj)
         {
-
+            if (obj != null && checkIndexValidation(index)) 
+            {
+                estateList[index] = obj;
+            }
         }
 
         // Checking if the index is not out of bounds 
         private bool checkIndexValidation(int index)
         {
-            bool ok = false;
-            if ((index >= 0) && (index <= estateList.Count))
-                ok = true;
-            return ok; 
+            return (index >= 0) && (index < estateList.Count);
         }
     }
 

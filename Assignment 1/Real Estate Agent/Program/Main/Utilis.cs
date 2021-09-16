@@ -17,7 +17,7 @@ namespace Real_Estate_Agent.Program.Main
         {
             enumValidator<T>();
 
-            if (str == "")
+            if (str == "" || str == null)
             {
                 throw new Exception("cannot parse empty string");
             }

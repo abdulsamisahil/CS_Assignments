@@ -10,8 +10,9 @@ namespace Real_Estate_Agent
         private double rent; 
 
         // Constructor 
+        public Rental() {}
 
-        public Rental(double rent, bool balcony, int rooms, int floor) :base(balcony, rooms, floor)
+        public Rental(double rent) : base()
         {
             this.rent = rent; 
         }

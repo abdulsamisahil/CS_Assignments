@@ -10,10 +10,11 @@ namespace Real_Estate_Agent
         private bool garden; 
 
         // Constructor 
+        public Rowhouse() {}
 
-        public Rowhouse (bool g, bool b, int cy, int nbrRooms, int f) : base(b, cy, nbrRooms, f)
+        public Rowhouse (bool g, bool b, int cy) : base(b, cy)
         {
-            this.garden = g; 
+            garden = g; 
         }
 
         //Properties 

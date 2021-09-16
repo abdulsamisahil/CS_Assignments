@@ -36,6 +36,8 @@ namespace Real_Estate_Agent
             "Tenement"
         };
 
+        private EstateHandler estateHandler = new EstateHandler();
+
         public mainForm()
         {
             InitializeComponent();
@@ -104,31 +106,34 @@ namespace Real_Estate_Agent
         {
             string value = (string)eTypeComboBox.SelectedItem;
 
-            EstateType estateType = Utilis.strToEnumValue<EstateType>(value);
-
-            eSubComboBox.SelectedIndex = -1;
-
-            eSubComboBox.Items.Clear();
-            
-            switch (estateType)
+            if (value != "" && value != null)
             {
-                case EstateType.Commercial:
+                EstateType estateType = Utilis.strToEnumValue<EstateType>(value);
 
-                    eSubComboBox.Items.AddRange(commercialSubComboboxItems);
-                    break;
+                eSubComboBox.SelectedIndex = -1;
 
-                case EstateType.Institutional:
+                eSubComboBox.Items.Clear();
 
-                    eSubComboBox.Items.AddRange(institutionalSubComboboxItems);
-                    break;
+                switch (estateType)
+                {
+                    case EstateType.Commercial:
 
-                case EstateType.Residential:
-                    
-                    eSubComboBox.Items.AddRange(residentialSubComboboxItems);
-                    break;
+                        eSubComboBox.Items.AddRange(commercialSubComboboxItems);
+                        break;
+
+                    case EstateType.Institutional:
+
+                        eSubComboBox.Items.AddRange(institutionalSubComboboxItems);
+                        break;
+
+                    case EstateType.Residential:
+
+                        eSubComboBox.Items.AddRange(residentialSubComboboxItems);
+                        break;
+                }
+
+                setCommonVars("CommonVar1", "CommonVar2", "CommonVar3");
             }
-
-            setCommonVars("CommonVar1", "CommonVar2", "CommonVar3");
         }
 
         private void commonVarsLabelsUpdater(string value)
@@ -196,7 +201,7 @@ namespace Real_Estate_Agent
             observable.listener += (string value) =>
             {
                 textBox.Text = value;
-            };
+            }; 
 
             textBox.TextChanged += (object sender, EventArgs e) => 
             {
@@ -217,26 +222,58 @@ namespace Real_Estate_Agent
             };
         }
 
-        private void btnCreate_Click(object sender, EventArgs e)
+        private Estate createEstate()
         {
-            MessageBox.Show("Hi Object! ");
+            Estate estate = null;
 
-            //Todo: Figure out the user input object, by checking with the EstateType and SubType Enums 
-            //Todo: Once the right input is found out, create the estate object and instantiate it to it's right subtype 
-            //Todo: Call upon Estatehandler and add it to the collection 
-            //Todo: Show it up in the gui listbox, with its full information visible
+            if (subTypeObservable.value != "" && subTypeObservable.value != null) 
+            {
+                SubTypes subType = Utilis.strToEnumValue<SubTypes>(subTypeObservable.value);
 
+                switch(subType)
+                {
+                    case SubTypes.Rental:
 
-        }
+                        // setCommonVars("Rent", "Rooms", "floor");
 
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
+                        double rent = double.Parse(commonVarObservable1.value);
 
-        }
+                        int rooms = int.Parse(commonVarObservable2.value);
 
-        private void eTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
+                        int floor = int.Parse(commonVarObservable3.value);
 
+                        // Rental rental = new Rental();
+
+                        Rental rental = new Rental();
+
+                        estate = rental;
+
+                        break;
+
+                    case SubTypes.Rowhouse:
+                        break;
+
+                    case SubTypes.School:
+                        break;
+
+                    case SubTypes.Shop:
+                        break;
+
+                    case SubTypes.Tenement:
+                        break;
+
+                    case SubTypes.University:
+                        break;
+
+                    case SubTypes.Villa:
+                        break;
+
+                    case SubTypes.Warehouse:
+                        break;
+                }
+            }
+
+            return estate;
         }
     }
 }

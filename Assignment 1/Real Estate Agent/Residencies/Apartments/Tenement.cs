@@ -12,16 +12,15 @@ namespace Real_Estate_Agent
         private string housingAssociation; 
 
         // Constructor 
+        public Tenement() {}
 
-
-        public Tenement(string ha, bool balcony, int rooms, int floor) : base(balcony, rooms, floor)
+        public Tenement(string ha) : base()
         {
-            this.housingAssociation = ha; 
+            housingAssociation = ha; 
         }
 
 
         // Property 
-
         public string HousingAssociation
         {
             get; set; 

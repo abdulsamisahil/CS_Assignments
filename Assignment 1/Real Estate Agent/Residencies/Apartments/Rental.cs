@@ -21,7 +21,11 @@ namespace Real_Estate_Agent
         // Property 
         public double Rent
         {
-            get; set; 
+            get; set;
+        }
+        public override string ToString()
+        {
+            return base.ToString() + " Rent: "+ Rent;
         }
     }
 }

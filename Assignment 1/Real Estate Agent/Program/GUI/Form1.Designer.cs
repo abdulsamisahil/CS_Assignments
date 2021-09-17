@@ -181,11 +181,12 @@ namespace Real_Estate_Agent
             // 
             this.listView1.BackColor = System.Drawing.Color.White;
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(519, 319);
+            this.listView1.Location = new System.Drawing.Point(438, 233);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(480, 193);
+            this.listView1.Size = new System.Drawing.Size(950, 386);
             this.listView1.TabIndex = 13;
             this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged_1);
             // 
             // btnDelete
             // 
@@ -216,7 +217,7 @@ namespace Real_Estate_Agent
             this.pictureBox1.BackColor = System.Drawing.Color.White;
             this.pictureBox1.Location = new System.Drawing.Point(31, 319);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(471, 190);
+            this.pictureBox1.Size = new System.Drawing.Size(355, 217);
             this.pictureBox1.TabIndex = 16;
             this.pictureBox1.TabStop = false;
             // 
@@ -300,7 +301,7 @@ namespace Real_Estate_Agent
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(1035, 519);
+            this.ClientSize = new System.Drawing.Size(1455, 631);
             this.Controls.Add(this.countriesComboBox);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);

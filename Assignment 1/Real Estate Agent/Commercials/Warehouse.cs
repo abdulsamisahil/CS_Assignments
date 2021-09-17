@@ -17,11 +17,16 @@ namespace Real_Estate_Agent
             this.rating = rating; 
         }
 
-        //Property 
+        //Property
 
         public double Rating
         {
             get; set; 
+        }
+
+        public override string ToString()
+        {
+            return base.ToString() + " Ratings: "+ Rating;
         }
     }
 }

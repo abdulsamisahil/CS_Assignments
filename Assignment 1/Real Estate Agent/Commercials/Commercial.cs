@@ -37,9 +37,9 @@ namespace Real_Estate_Agent
         #endregion
 
 
-        public override double calculateArea()
+        public override string ToString()
         {
-            throw new NotImplementedException();
+            return " Usage: " + Usage+  " Income: " + Income;
         }
     }
 }

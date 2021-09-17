@@ -8,26 +8,25 @@ namespace Real_Estate_Agent
     public abstract class Residential : Estate
     {
         private int numberOfRooms;
-        
         private int floor;
 
         public Residential() { }
 
         // Constructor 
         public Residential(int r, int f)
-        {
-            numberOfRooms = r;
 
-            floor = f; 
+        {
+            this.numberOfRooms = r;
+            this.floor = f; 
         }
-
+        
+        #region Properties 
         public int NumberOfRooms { get; set; }
-
         public int Floor { get; set; }
-
-        public override double calculateArea()
+        #endregion
+        public override string ToString()
         {
-            throw new NotImplementedException();
+            return  "Rooms: "+ NumberOfRooms+ " Floor: "+ Floor;
         }
     }
 }

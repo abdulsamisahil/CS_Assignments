@@ -62,7 +62,7 @@ namespace Real_Estate_Agent
 
 
         // The abstract method which is common for all estates
-        public abstract double calculateArea();
+        public abstract string ToString();
 
 
     }

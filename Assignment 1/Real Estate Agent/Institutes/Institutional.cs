@@ -35,10 +35,10 @@ namespace Real_Estate_Agent
             get; set;
         }
 
-#endregion
-        public override double calculateArea()
+        #endregion
+        public override string ToString()
         {
-            throw new NotImplementedException();
+            return " Name: "+ Name+ " Library: " + Library;
         }
     }
 }

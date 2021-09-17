@@ -25,5 +25,10 @@ namespace Real_Estate_Agent
         {
             get; set; 
         }
+
+        public override string ToString()
+        {
+            return base.ToString() + " Shop name: "+ ShopeName;
+        }
     }
 }

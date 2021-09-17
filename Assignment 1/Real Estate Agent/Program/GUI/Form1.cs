@@ -376,10 +376,11 @@ namespace Real_Estate_Agent
             SubTypes subType = Utilis.strToEnumValue<SubTypes>(subTypeObservable.value);
 
 
-
+           
             int rooms = 0;
 
             int flor = 0;
+
 
             if (Utilis.isSubTypeResidential(subType))
             {
@@ -594,6 +595,11 @@ namespace Real_Estate_Agent
             }
 
             listView1.Items.AddRange(listViewItems.ToArray()); 
+        }
+
+        private void listView1_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

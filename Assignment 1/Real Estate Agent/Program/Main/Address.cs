@@ -14,6 +14,7 @@ namespace Real_Estate_Agent
         public string city;
         public Countries country;
 
+
         //// Constructor 
         //public Address(string zc, string st, string ct, Countries co)
         //{
@@ -22,5 +23,10 @@ namespace Real_Estate_Agent
         //    this.city = ct;
         //    this.country = co;
         //}
+
+        public override string ToString()
+        {
+            return string.Format("{0}", "{1}", "{2}", "{3}",street, zip_code, city, country );
+        }
     }
 }

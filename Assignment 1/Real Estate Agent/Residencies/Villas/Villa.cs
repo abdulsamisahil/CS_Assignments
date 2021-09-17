@@ -33,5 +33,10 @@ namespace Real_Estate_Agent
             get; set;
         }
         #endregion
+
+        public override string ToString()
+        {
+            return base.ToString() + " Builded: "+ ConstructionYear;
+        }
     }
 }

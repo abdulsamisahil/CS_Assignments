@@ -43,6 +43,9 @@ namespace Real_Estate_Agent
             this.txtCV3 = new System.Windows.Forms.TextBox();
             this.btnCreate = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
+            this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
             this.btnDelete = new System.Windows.Forms.Button();
             this.Change = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -180,13 +183,33 @@ namespace Real_Estate_Agent
             // listView1
             // 
             this.listView1.BackColor = System.Drawing.Color.White;
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3});
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(438, 233);
+            this.listView1.Location = new System.Drawing.Point(392, 319);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(950, 386);
+            this.listView1.Size = new System.Drawing.Size(479, 217);
             this.listView1.TabIndex = 13;
             this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
             this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged_1);
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "E_Attribute1";
+            this.columnHeader1.Width = 180;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "E_Attribute2";
+            this.columnHeader2.Width = 150;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "E_Attirbute3";
+            this.columnHeader3.Width = 150;
             // 
             // btnDelete
             // 
@@ -301,7 +324,7 @@ namespace Real_Estate_Agent
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(1455, 631);
+            this.ClientSize = new System.Drawing.Size(922, 583);
             this.Controls.Add(this.countriesComboBox);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
@@ -366,6 +389,9 @@ namespace Real_Estate_Agent
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.ComboBox countriesComboBox;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
     }
 }
 

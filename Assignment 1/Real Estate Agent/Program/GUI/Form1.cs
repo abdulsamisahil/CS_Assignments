@@ -37,6 +37,7 @@ namespace Real_Estate_Agent
         };
 
         private EstateHandler estateHandler = new EstateHandler();
+        private String[] estateRow;  
 
         public mainForm()
         {
@@ -204,22 +205,29 @@ namespace Real_Estate_Agent
                 if (Utilis.isSubTypeResidential(subType)) 
                 {
                     commonvar2 = "Rooms";
+                    commonvar3 = "Floor";
 
-                    commonvar3 = "flor";
+                    columnHeader2.Text = "Rooms";
+                    columnHeader3.Text = "Floor"; 
                 }
 
                 if (Utilis.isSubTypeCommercial(subType))
                 {
                     commonvar2 = "Usage";
-
                     commonvar3 = "Income";
+
+                    columnHeader2.Text = "Usage";
+                    columnHeader3.Text = "Income"; 
                 }
 
                 if (Utilis.isSubTypeInstitutional(subType))
                 {
                     commonvar2 = "Name";
-
                     commonvar3 = "Library";
+
+                    columnHeader2.Text = "Name";
+                    columnHeader3.Text = "Library"; 
+
                 }
 
 
@@ -227,41 +235,49 @@ namespace Real_Estate_Agent
                 if (SubTypes.Rental == subType)
                 {
                     commonvar1 = "Rent";
+                    columnHeader1.Text = "Rent"; 
                 }
 
                 if (SubTypes.Villa == subType)
                 {
                     commonvar1 = "Construction year";
+                    columnHeader1.Text = "Builded"; 
                 }
 
                 if (SubTypes.Rowhouse == subType)
                 {
                     commonvar1 = "Garden";
+                    columnHeader1.Text = "Garden"; 
                 }
 
                 if (SubTypes.Tenement == subType)
                 {
                     commonvar1 = "Housing association";
+                    columnHeader1.Text = "Association"; 
                 }
 
                 if (SubTypes.Shop == subType) 
                 {
                     commonvar1 = "Shope name";
+                    columnHeader1.Text = "Shope name"; 
                 }
 
                 if (SubTypes.Warehouse == subType)
                 {
                     commonvar1 = "Rating";
+                    columnHeader1.Text = "Ratings"; 
                 }
 
                 if (SubTypes.School == subType)
                 {
                     commonvar1 = "Type of school";
+                    columnHeader1.Text = "School Type"; 
                 }
 
                 if (SubTypes.University == subType)
                 {
                     commonvar1 = "Group rooms";
+                    columnHeader1.Text = "Nbr Of Rooms"; 
                 }
 
                 setCommonVars(commonvar1, commonvar2, commonvar3);
@@ -429,6 +445,8 @@ namespace Real_Estate_Agent
 
                 rental.Floor = flor;
 
+              //  estateRow = { "234", "234", }; 
+                
                 estate = rental;
             }
 
@@ -585,18 +603,76 @@ namespace Real_Estate_Agent
 
             List<ListViewItem> listViewItems = new List<ListViewItem>(); 
 
+            
+
             foreach(Estate lis in list )
             {
+                
                 ListViewItem item = new ListViewItem();
-
+                 
                 item.Text = lis.ToString();
                 
                 listViewItems.Add(item); 
             }
 
-            listView1.Items.AddRange(listViewItems.ToArray()); 
+            listView1.Items.AddRange(listViewItems.ToArray());  
         }
 
+        //Returns the correct estate array in string
+        private string[] returnEstateArray()
+        {
+            
+
+            SubTypes subType = Utilis.strToEnumValue<SubTypes>(subTypeObservable.value);
+
+            string[] row = new string[3];
+
+            string str1 = "", str2 = "", str3 = ""; 
+
+            if (SubTypes.University == subType)
+            {
+                University university = new University();
+
+                str1 = university.Name;
+
+                str2 = university.NbrOfGroupRooms.ToString(); 
+
+                str3 = university.Library.ToString();
+
+                row[0] = str1;
+                row[1] = str2;
+                row[2] = str3; 
+            }
+            if (SubTypes.School == subType)
+            {
+                School school = new School();
+
+                str2 = school.Name;
+
+                str1 = school.TypeOfSchool;
+
+                str3 = school.Library.ToString();
+
+                row[0] = str1;
+                row[1] = str2;
+                row[2] = str3;
+            }
+            if (SubTypes.Rental == subType)
+            {
+                Rental rental = new Rental();
+
+                str1 = rental.Rent.ToString();
+
+                str2 = rental.NumberOfRooms.ToString();
+
+                str3 = rental.Floor.ToString();
+
+                row[0] = str1;
+                row[1] = str2;
+                row[2] = str3;
+            }
+            return row;
+        }
         private void listView1_SelectedIndexChanged_1(object sender, EventArgs e)
         {
 

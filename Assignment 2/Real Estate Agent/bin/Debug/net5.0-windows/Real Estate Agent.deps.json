@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "Real Estate Agent/1.0.0": {
+        "runtime": {
+          "Real Estate Agent.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Real Estate Agent/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

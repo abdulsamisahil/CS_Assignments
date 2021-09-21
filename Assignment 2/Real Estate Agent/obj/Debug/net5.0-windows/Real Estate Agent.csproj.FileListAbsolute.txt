@@ -1,0 +1,76 @@
+C:\Users\mutaz\Documents\GitHub\CS_Assignments\Assignment 1\Real Estate Agent\bin\Debug\net5.0-windows\Real Estate Agent.exe
+C:\Users\mutaz\Documents\GitHub\CS_Assignments\Assignment 1\Real Estate Agent\bin\Debug\net5.0-windows\Real Estate Agent.deps.json
+C:\Users\mutaz\Documents\GitHub\CS_Assignments\Assignment 1\Real Estate Agent\bin\Debug\net5.0-windows\Real Estate Agent.runtimeconfig.json
+C:\Users\mutaz\Documents\GitHub\CS_Assignments\Assignment 1\Real Estate Agent\bin\Debug\net5.0-windows\Real Estate Agent.runtimeconfig.dev.json
+C:\Users\mutaz\Documents\GitHub\CS_Assignments\Assignment 1\Real Estate Agent\bin\Debug\net5.0-windows\Real Estate Agent.dll
+C:\Users\mutaz\Documents\GitHub\CS_Assignments\Assignment 1\Real Estate Agent\bin\Debug\net5.0-windows\ref\Real Estate Agent.dll
+C:\Users\mutaz\Documents\GitHub\CS_Assignments\Assignment 1\Real Estate Agent\bin\Debug\net5.0-windows\Real Estate Agent.pdb
+C:\Users\mutaz\Documents\GitHub\CS_Assignments\Assignment 1\Real Estate Agent\obj\Debug\net5.0-windows\Real Estate Agent.csproj.AssemblyReference.cache
+C:\Users\mutaz\Documents\GitHub\CS_Assignments\Assignment 1\Real Estate Agent\obj\Debug\net5.0-windows\Real_Estate_Agent.mainForm.resources
+C:\Users\mutaz\Documents\GitHub\CS_Assignments\Assignment 1\Real Estate Agent\obj\Debug\net5.0-windows\Real Estate Agent.csproj.GenerateResource.cache
+C:\Users\mutaz\Documents\GitHub\CS_Assignments\Assignment 1\Real Estate Agent\obj\Debug\net5.0-windows\Real Estate Agent.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mutaz\Documents\GitHub\CS_Assignments\Assignment 1\Real Estate Agent\obj\Debug\net5.0-windows\Real Estate Agent.AssemblyInfoInputs.cache
+C:\Users\mutaz\Documents\GitHub\CS_Assignments\Assignment 1\Real Estate Agent\obj\Debug\net5.0-windows\Real Estate Agent.AssemblyInfo.cs
+C:\Users\mutaz\Documents\GitHub\CS_Assignments\Assignment 1\Real Estate Agent\obj\Debug\net5.0-windows\Real Estate Agent.csproj.CoreCompileInputs.cache
+C:\Users\mutaz\Documents\GitHub\CS_Assignments\Assignment 1\Real Estate Agent\obj\Debug\net5.0-windows\Real Estate Agent.dll
+C:\Users\mutaz\Documents\GitHub\CS_Assignments\Assignment 1\Real Estate Agent\obj\Debug\net5.0-windows\ref\Real Estate Agent.dll
+C:\Users\mutaz\Documents\GitHub\CS_Assignments\Assignment 1\Real Estate Agent\obj\Debug\net5.0-windows\Real Estate Agent.pdb
+C:\Users\mutaz\Documents\GitHub\CS_Assignments\Assignment 1\Real Estate Agent\obj\Debug\net5.0-windows\Real Estate Agent.genruntimeconfig.cache
+C:\Users\mutaz\Documents\GitHub\CS_Assignments\Assignment 1\Real Estate Agent\obj\Debug\net5.0-windows\Real_Estate_Agent.Properties.Resources.resources
+C:\Users\Sami\Documents\GitHub\CS_Assignments\Assignment 1\Real Estate Agent\bin\Debug\net5.0-windows\Real Estate Agent.exe
+C:\Users\Sami\Documents\GitHub\CS_Assignments\Assignment 1\Real Estate Agent\bin\Debug\net5.0-windows\Real Estate Agent.deps.json
+C:\Users\Sami\Documents\GitHub\CS_Assignments\Assignment 1\Real Estate Agent\bin\Debug\net5.0-windows\Real Estate Agent.runtimeconfig.json
+C:\Users\Sami\Documents\GitHub\CS_Assignments\Assignment 1\Real Estate Agent\bin\Debug\net5.0-windows\Real Estate Agent.runtimeconfig.dev.json
+C:\Users\Sami\Documents\GitHub\CS_Assignments\Assignment 1\Real Estate Agent\bin\Debug\net5.0-windows\Real Estate Agent.dll
+C:\Users\Sami\Documents\GitHub\CS_Assignments\Assignment 1\Real Estate Agent\bin\Debug\net5.0-windows\ref\Real Estate Agent.dll
+C:\Users\Sami\Documents\GitHub\CS_Assignments\Assignment 1\Real Estate Agent\bin\Debug\net5.0-windows\Real Estate Agent.pdb
+C:\Users\Sami\Documents\GitHub\CS_Assignments\Assignment 1\Real Estate Agent\obj\Debug\net5.0-windows\Real Estate Agent.csproj.AssemblyReference.cache
+C:\Users\Sami\Documents\GitHub\CS_Assignments\Assignment 1\Real Estate Agent\obj\Debug\net5.0-windows\Real_Estate_Agent.mainForm.resources
+C:\Users\Sami\Documents\GitHub\CS_Assignments\Assignment 1\Real Estate Agent\obj\Debug\net5.0-windows\Real_Estate_Agent.Properties.Resources.resources
+C:\Users\Sami\Documents\GitHub\CS_Assignments\Assignment 1\Real Estate Agent\obj\Debug\net5.0-windows\Real Estate Agent.csproj.GenerateResource.cache
+C:\Users\Sami\Documents\GitHub\CS_Assignments\Assignment 1\Real Estate Agent\obj\Debug\net5.0-windows\Real Estate Agent.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Sami\Documents\GitHub\CS_Assignments\Assignment 1\Real Estate Agent\obj\Debug\net5.0-windows\Real Estate Agent.AssemblyInfoInputs.cache
+C:\Users\Sami\Documents\GitHub\CS_Assignments\Assignment 1\Real Estate Agent\obj\Debug\net5.0-windows\Real Estate Agent.AssemblyInfo.cs
+C:\Users\Sami\Documents\GitHub\CS_Assignments\Assignment 1\Real Estate Agent\obj\Debug\net5.0-windows\Real Estate Agent.csproj.CoreCompileInputs.cache
+C:\Users\Sami\Documents\GitHub\CS_Assignments\Assignment 1\Real Estate Agent\obj\Debug\net5.0-windows\Real Estate Agent.dll
+C:\Users\Sami\Documents\GitHub\CS_Assignments\Assignment 1\Real Estate Agent\obj\Debug\net5.0-windows\ref\Real Estate Agent.dll
+C:\Users\Sami\Documents\GitHub\CS_Assignments\Assignment 1\Real Estate Agent\obj\Debug\net5.0-windows\Real Estate Agent.pdb
+C:\Users\Sami\Documents\GitHub\CS_Assignments\Assignment 1\Real Estate Agent\obj\Debug\net5.0-windows\Real Estate Agent.genruntimeconfig.cache
+C:\Users\youse\OneDrive\Documents\GitHub\CS_Assignments\Assignment 1\Real Estate Agent\bin\Debug\net5.0-windows\Real Estate Agent.exe
+C:\Users\youse\OneDrive\Documents\GitHub\CS_Assignments\Assignment 1\Real Estate Agent\bin\Debug\net5.0-windows\Real Estate Agent.deps.json
+C:\Users\youse\OneDrive\Documents\GitHub\CS_Assignments\Assignment 1\Real Estate Agent\bin\Debug\net5.0-windows\Real Estate Agent.runtimeconfig.json
+C:\Users\youse\OneDrive\Documents\GitHub\CS_Assignments\Assignment 1\Real Estate Agent\bin\Debug\net5.0-windows\Real Estate Agent.runtimeconfig.dev.json
+C:\Users\youse\OneDrive\Documents\GitHub\CS_Assignments\Assignment 1\Real Estate Agent\bin\Debug\net5.0-windows\Real Estate Agent.dll
+C:\Users\youse\OneDrive\Documents\GitHub\CS_Assignments\Assignment 1\Real Estate Agent\bin\Debug\net5.0-windows\ref\Real Estate Agent.dll
+C:\Users\youse\OneDrive\Documents\GitHub\CS_Assignments\Assignment 1\Real Estate Agent\bin\Debug\net5.0-windows\Real Estate Agent.pdb
+C:\Users\youse\OneDrive\Documents\GitHub\CS_Assignments\Assignment 1\Real Estate Agent\obj\Debug\net5.0-windows\Real Estate Agent.csproj.AssemblyReference.cache
+C:\Users\youse\OneDrive\Documents\GitHub\CS_Assignments\Assignment 1\Real Estate Agent\obj\Debug\net5.0-windows\Real_Estate_Agent.mainForm.resources
+C:\Users\youse\OneDrive\Documents\GitHub\CS_Assignments\Assignment 1\Real Estate Agent\obj\Debug\net5.0-windows\Real_Estate_Agent.Properties.Resources.resources
+C:\Users\youse\OneDrive\Documents\GitHub\CS_Assignments\Assignment 1\Real Estate Agent\obj\Debug\net5.0-windows\Real Estate Agent.csproj.GenerateResource.cache
+C:\Users\youse\OneDrive\Documents\GitHub\CS_Assignments\Assignment 1\Real Estate Agent\obj\Debug\net5.0-windows\Real Estate Agent.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\youse\OneDrive\Documents\GitHub\CS_Assignments\Assignment 1\Real Estate Agent\obj\Debug\net5.0-windows\Real Estate Agent.AssemblyInfoInputs.cache
+C:\Users\youse\OneDrive\Documents\GitHub\CS_Assignments\Assignment 1\Real Estate Agent\obj\Debug\net5.0-windows\Real Estate Agent.AssemblyInfo.cs
+C:\Users\youse\OneDrive\Documents\GitHub\CS_Assignments\Assignment 1\Real Estate Agent\obj\Debug\net5.0-windows\Real Estate Agent.csproj.CoreCompileInputs.cache
+C:\Users\youse\OneDrive\Documents\GitHub\CS_Assignments\Assignment 1\Real Estate Agent\obj\Debug\net5.0-windows\Real Estate Agent.dll
+C:\Users\youse\OneDrive\Documents\GitHub\CS_Assignments\Assignment 1\Real Estate Agent\obj\Debug\net5.0-windows\ref\Real Estate Agent.dll
+C:\Users\youse\OneDrive\Documents\GitHub\CS_Assignments\Assignment 1\Real Estate Agent\obj\Debug\net5.0-windows\Real Estate Agent.pdb
+C:\Users\youse\OneDrive\Documents\GitHub\CS_Assignments\Assignment 1\Real Estate Agent\obj\Debug\net5.0-windows\Real Estate Agent.genruntimeconfig.cache
+C:\Users\Sami\Documents\GitHub\CS_Assignments\Assignment 2\Real Estate Agent\bin\Debug\net5.0-windows\Real Estate Agent.exe
+C:\Users\Sami\Documents\GitHub\CS_Assignments\Assignment 2\Real Estate Agent\bin\Debug\net5.0-windows\Real Estate Agent.deps.json
+C:\Users\Sami\Documents\GitHub\CS_Assignments\Assignment 2\Real Estate Agent\bin\Debug\net5.0-windows\Real Estate Agent.runtimeconfig.json
+C:\Users\Sami\Documents\GitHub\CS_Assignments\Assignment 2\Real Estate Agent\bin\Debug\net5.0-windows\Real Estate Agent.runtimeconfig.dev.json
+C:\Users\Sami\Documents\GitHub\CS_Assignments\Assignment 2\Real Estate Agent\bin\Debug\net5.0-windows\Real Estate Agent.dll
+C:\Users\Sami\Documents\GitHub\CS_Assignments\Assignment 2\Real Estate Agent\bin\Debug\net5.0-windows\ref\Real Estate Agent.dll
+C:\Users\Sami\Documents\GitHub\CS_Assignments\Assignment 2\Real Estate Agent\bin\Debug\net5.0-windows\Real Estate Agent.pdb
+C:\Users\Sami\Documents\GitHub\CS_Assignments\Assignment 2\Real Estate Agent\obj\Debug\net5.0-windows\Real Estate Agent.csproj.AssemblyReference.cache
+C:\Users\Sami\Documents\GitHub\CS_Assignments\Assignment 2\Real Estate Agent\obj\Debug\net5.0-windows\Real_Estate_Agent.mainForm.resources
+C:\Users\Sami\Documents\GitHub\CS_Assignments\Assignment 2\Real Estate Agent\obj\Debug\net5.0-windows\Real_Estate_Agent.Properties.Resources.resources
+C:\Users\Sami\Documents\GitHub\CS_Assignments\Assignment 2\Real Estate Agent\obj\Debug\net5.0-windows\Real Estate Agent.csproj.GenerateResource.cache
+C:\Users\Sami\Documents\GitHub\CS_Assignments\Assignment 2\Real Estate Agent\obj\Debug\net5.0-windows\Real Estate Agent.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Sami\Documents\GitHub\CS_Assignments\Assignment 2\Real Estate Agent\obj\Debug\net5.0-windows\Real Estate Agent.AssemblyInfoInputs.cache
+C:\Users\Sami\Documents\GitHub\CS_Assignments\Assignment 2\Real Estate Agent\obj\Debug\net5.0-windows\Real Estate Agent.AssemblyInfo.cs
+C:\Users\Sami\Documents\GitHub\CS_Assignments\Assignment 2\Real Estate Agent\obj\Debug\net5.0-windows\Real Estate Agent.csproj.CoreCompileInputs.cache
+C:\Users\Sami\Documents\GitHub\CS_Assignments\Assignment 2\Real Estate Agent\obj\Debug\net5.0-windows\Real Estate Agent.dll
+C:\Users\Sami\Documents\GitHub\CS_Assignments\Assignment 2\Real Estate Agent\obj\Debug\net5.0-windows\ref\Real Estate Agent.dll
+C:\Users\Sami\Documents\GitHub\CS_Assignments\Assignment 2\Real Estate Agent\obj\Debug\net5.0-windows\Real Estate Agent.pdb
+C:\Users\Sami\Documents\GitHub\CS_Assignments\Assignment 2\Real Estate Agent\obj\Debug\net5.0-windows\Real Estate Agent.genruntimeconfig.cache

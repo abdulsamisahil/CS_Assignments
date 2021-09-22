@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace Real_Estate_Agent.Program.Main
 {
-    class EstateManager
+    class EstateManager : ListManager<Estate>
     {
+
+       
+        public EstateManager() 
+        {
+            
+        }
     }
+    
 }

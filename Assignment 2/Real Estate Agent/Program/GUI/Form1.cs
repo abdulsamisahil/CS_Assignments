@@ -35,8 +35,11 @@ namespace Real_Estate_Agent
             "Rental",
             "Tenement"
         };
+        // A1 implementation 
+        //private EstateHandler estateHandler = new EstateHandler();
 
-        private EstateHandler estateHandler = new EstateHandler();
+        // Implemented for a2 
+        private EstateManager estateManager = new EstateManager(); 
 
         public mainForm()
         {
@@ -70,7 +73,7 @@ namespace Real_Estate_Agent
 
             subTypeObservable.listener += imageUpdater;
 
-            estateHandler.observableList.listener += updateListView; 
+            estateManager.observableList.listener += updateListView; 
         }
 
         private void imageUpdater(string value)
@@ -318,7 +321,7 @@ namespace Real_Estate_Agent
                     index = i;
                 }
 
-                Estate estate = estateHandler.findEstateAt(index);
+                Estate estate = estateManager.GetAt(index);
 
 
             }
@@ -329,7 +332,7 @@ namespace Real_Estate_Agent
 
             foreach (int index in listView1.SelectedIndices)
             {
-                estateHandler.removeEstateAt(index);
+                estateManager.DeleteAt(index);
             }
 
             commonVarObservable1.value = null;
@@ -355,7 +358,7 @@ namespace Real_Estate_Agent
             {
                 Estate estate = createEstate();
 
-                estateHandler.changeEstate(index, estate);
+                estateManager.ChangeAt(estate, index);
             }
         }
 
@@ -365,7 +368,7 @@ namespace Real_Estate_Agent
             {
                 Estate estate = createEstate();
 
-                estateHandler.addEstate(estate);
+                estateManager.Add(estate);
             }
         }
 

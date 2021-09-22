@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Real_Estate_Agent.Program.Main
 {
@@ -13,6 +14,15 @@ namespace Real_Estate_Agent.Program.Main
             _value = value;
 
             excuteListeners(_value);
+        }
+
+        public Observable()
+        {
+        }
+
+        public Observable(List<T> my_List)
+        {
+            My_List = my_List;
         }
 
         private void excuteListeners(T value)
@@ -37,5 +47,7 @@ namespace Real_Estate_Agent.Program.Main
                 excuteListeners(_value);
             }
         }
+
+        public List<T> My_List { get; }
     }
 }

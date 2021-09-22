@@ -9,12 +9,15 @@ namespace Real_Estate_Agent.Program.Main
     class ListManager<T> : IListManager<T>
     {
         // Instance 
-        private List<T> my_List; 
+        private List<T> my_List;
+        public readonly Observable<List<Estate>> observableList;
+
 
         //Constructor
         public ListManager()
         {
-            my_List = new List<T>(); 
+            my_List = new List<T>();
+            observableList = new Observable<List<Estate>>();
         }
 
         public int Count 
@@ -28,9 +31,10 @@ namespace Real_Estate_Agent.Program.Main
             try
             {
                 my_List.Add(obj);
+              //  observableList.value = my_List;
                 return true; 
 
-            }catch(Exception e)
+            }catch(Exception)
             {
 
                 return false; 
@@ -48,7 +52,7 @@ namespace Real_Estate_Agent.Program.Main
                 }
                 return false; 
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return false;
             }
@@ -75,7 +79,7 @@ namespace Real_Estate_Agent.Program.Main
                 }
                 return false; 
             }
-            catch(Exception e)
+            catch(Exception )
             {
                 return false; 
             }
@@ -83,21 +87,32 @@ namespace Real_Estate_Agent.Program.Main
 
         public T GetAt(int index)
         {
-
             if (CheckIndex(index))
                 return my_List.ElementAt<T>(index);
 
             return default(T); 
         }
 
-        public string[] ToStringArray()
+        public string [] ToStringArray()
         {
-            throw new NotImplementedException();
+            string [] listInString = new string[my_List.Count];
+
+            for(int i = 0; i < my_List.Count; i++)
+            {
+                listInString[i] = my_List.ElementAt(i).ToString(); 
+            }
+
+            return listInString; 
         }
 
         public List<string> ToStringList()
         {
-            throw new NotImplementedException();
+            List<string> coll = new List<string>();
+            coll = my_List.Select(x => x.ToString()).ToList();
+
+            
+            // List<String> list = ((IEnumerable)obj).Cast<Object>().Select(x => x.ToString());
+            return coll; 
         }
     }
 }

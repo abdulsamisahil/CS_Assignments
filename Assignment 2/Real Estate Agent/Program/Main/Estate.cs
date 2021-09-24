@@ -10,12 +10,16 @@ using System.Text;
 /// </summary>
 namespace Real_Estate_Agent
 {
+    [Serializable]
+
     public abstract class Estate : IEstate
     {
         //Common vars for all subs 
         
         private  Address address;
         private string id; 
+
+        
 
         // Constructor 
         public Estate(string Id, Address address) 

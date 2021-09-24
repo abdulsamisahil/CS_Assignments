@@ -5,6 +5,7 @@ using System.Text;
 
 namespace Real_Estate_Agent
 {
+    [Serializable]
     public class Warehouse : Commercial
     {
         // Specific vars 

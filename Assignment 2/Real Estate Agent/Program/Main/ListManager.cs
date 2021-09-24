@@ -17,7 +17,7 @@ namespace Real_Estate_Agent.Program.Main
         public ListManager()
         {
             my_List = new List<T>();
-            observableList = new Observable<List<Estate>>();
+          //  observableList = new Observable<List<Estate>>();
         }
 
         public int Count 

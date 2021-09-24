@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Linq; 
 using Real_Estate_Agent.Program.Main;
-
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary; 
 namespace Real_Estate_Agent
 {
     public partial class mainForm : Form
@@ -36,7 +37,7 @@ namespace Real_Estate_Agent
             "Tenement"
         };
         // A1 implementation 
-        //private EstateHandler estateHandler = new EstateHandler();
+        private EstateHandler estateHandler = new EstateHandler();
 
         // Implemented for a2 
         private EstateManager estateManager = new EstateManager(); 
@@ -73,7 +74,7 @@ namespace Real_Estate_Agent
 
             subTypeObservable.listener += imageUpdater;
 
-            estateManager.observableList.listener += updateListView; 
+            estateHandler.observableList.listener += updateListView; 
         }
 
         private void imageUpdater(string value)
@@ -605,14 +606,116 @@ namespace Real_Estate_Agent
 
         }
 
+        private void mnuFileNew_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Are you sure you want to restart the app? All the objects will be erased", "Restarting", MessageBoxButtons.YesNo); 
+            if (dr == DialogResult.Yes)
+            {
+                Application.Restart(); 
+            }
+            else
+            {
+                return; 
+            }
+        }
+
         private void mnuFileOpen_Click(object sender, EventArgs e)
+        {
+            Stream stream = null; 
+            OpenFileDialog theDialog = new OpenFileDialog();
+
+            theDialog.Title = "Open Text File";
+            theDialog.Filter = "TXT files|*.txt"; // Only txt files will be shown
+            theDialog.InitialDirectory = @"C:\"; // The default directory that opens
+            string filename = ""; 
+
+            if(theDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    if ((stream = theDialog.OpenFile())!= null)
+                    {
+                        filename = theDialog.FileName; 
+
+                        using (stream)
+                        {
+                            // code to read from the file that is opened
+                        }
+                    }
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Could not read the file from disk"); 
+                }
+            }
+
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void mnuFileSaveAs_Click(object sender, EventArgs e)
+        private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void CommonVar2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CommonVar3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CommonVar1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mainForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mnuFileSave_Click(object sender, EventArgs e)
+        {
+            mnuFileSaveAs_Click(sender, e); 
+        }
+
+        private void mnuFileSaveAs_Click(object sender, EventArgs e)
+        {
+            Stream stream;
+
+            SaveFileDialog saveFile = new SaveFileDialog();
+
+            saveFile.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+            saveFile.FilterIndex = 2;
+            saveFile.RestoreDirectory = true;
+
+            if (saveFile.ShowDialog() == DialogResult.OK)
+            {
+                if ((stream = saveFile.OpenFile()) != null)
+                {
+                    // Code to serialize and write the object to file 
+
+
+                    //after writing close the stream 
+                    stream.Close();
+                }
+            }
+        }
+
+        private void mnuFileExit_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Are you sure you want to exit?", "Closing the application", MessageBoxButtons.YesNo);
+            if (dr == DialogResult.Yes)
+                Application.Exit();
+            else return; 
         }
     }
 }

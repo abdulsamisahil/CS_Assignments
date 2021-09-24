@@ -604,5 +604,15 @@ namespace Real_Estate_Agent
         {
 
         }
+
+        private void mnuFileOpen_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mnuFileSaveAs_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

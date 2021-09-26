@@ -36,8 +36,11 @@ namespace Real_Estate_Agent
             "Rental",
             "Tenement"
         };
+
+        private string fileFilterStr = "Text files (*.txt)|*.txt|All files (*.save)|*.save";
+
         // A1 implementation 
-        private EstateHandler estateHandler = new EstateHandler();
+        // private EstateHandler estateHandler = new EstateHandler();
 
         // Implemented for a2 
         private EstateManager estateManager = new EstateManager(); 
@@ -74,7 +77,7 @@ namespace Real_Estate_Agent
 
             subTypeObservable.listener += imageUpdater;
 
-            estateHandler.observableList.listener += updateListView; 
+            estateManager.observable.listener += updateListView; 
         }
 
         private void imageUpdater(string value)
@@ -622,24 +625,31 @@ namespace Real_Estate_Agent
         private void mnuFileOpen_Click(object sender, EventArgs e)
         {
             Stream stream = null; 
+            
             OpenFileDialog theDialog = new OpenFileDialog();
 
             theDialog.Title = "Open Text File";
-            theDialog.Filter = "TXT files|*.txt"; // Only txt files will be shown
+            
+            theDialog.Filter = fileFilterStr; // Only txt files will be shown
+            
             theDialog.InitialDirectory = @"C:\"; // The default directory that opens
-            string filename = ""; 
 
             if(theDialog.ShowDialog() == DialogResult.OK)
             {
                 try
                 {
                     if ((stream = theDialog.OpenFile())!= null)
-                    {
-                        filename = theDialog.FileName; 
+                    { 
 
                         using (stream)
                         {
-                            // code to read from the file that is opened
+                            // string txtContent = System.IO.File.ReadAllText(theDialog.FileName);
+                            // Shop shop2 = null;
+                            // shop2 = es.BinaryDeserialize(filePath);
+
+                            Shop estate = EstateSerializer<Shop>.BinaryDeserialize(theDialog.FileName);
+
+                            MessageBox.Show(estate.ToString());
                         }
                     }
                 }
@@ -693,8 +703,10 @@ namespace Real_Estate_Agent
 
             SaveFileDialog saveFile = new SaveFileDialog();
 
-            saveFile.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+            saveFile.Filter = fileFilterStr;
+
             saveFile.FilterIndex = 2;
+            
             saveFile.RestoreDirectory = true;
 
             if (saveFile.ShowDialog() == DialogResult.OK)
@@ -703,6 +715,19 @@ namespace Real_Estate_Agent
                 {
                     // Code to serialize and write the object to file 
 
+
+                    int selectedIndex = -1;
+
+                    foreach (int index in listView1.SelectedIndices) {
+
+                        selectedIndex = index;
+
+                        break;
+                    }
+
+                    Shop estate = (Shop)estateManager.GetAt(selectedIndex);
+
+                    EstateSerializer<Shop>.BinarySerialize2(estate, stream);
 
                     //after writing close the stream 
                     stream.Close();

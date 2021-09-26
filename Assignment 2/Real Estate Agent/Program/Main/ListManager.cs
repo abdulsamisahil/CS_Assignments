@@ -1,28 +1,29 @@
 ﻿using System;
+
 using System.Collections.Generic;
+
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Real_Estate_Agent.Program.Main
 {
     class ListManager<T> : IListManager<T>
     {
         // Instance 
-        private List<T> my_List;
-        public readonly Observable<List<Estate>> observableList;
+        //private List<T> my_List;
 
+        private List<T> list = new List<T>();
 
-        //Constructor
+        public readonly Observable<List<T>> observable;
+
         public ListManager()
         {
-            my_List = new List<T>();
-          //  observableList = new Observable<List<Estate>>();
+
+            observable = new Observable<List<T>>(list);
         }
 
         public int Count 
         {
-            get { return my_List.Count;  }
+            get { return list.Count;  }
             
         }
 
@@ -30,11 +31,14 @@ namespace Real_Estate_Agent.Program.Main
         {
             try
             {
-                my_List.Add(obj);
-              //  observableList.value = my_List;
+                list.Add(obj);
+
+                observable.value = list;
+              
                 return true; 
 
-            }catch(Exception)
+            }
+            catch(Exception)
             {
 
                 return false; 
@@ -47,7 +51,10 @@ namespace Real_Estate_Agent.Program.Main
             {
                 if (CheckIndex(index) && obj != null)
                 {
-                    my_List[index] = obj;
+                    list[index] = obj;
+
+                    observable.value = list;
+
                     return true; 
                 }
                 return false; 
@@ -60,12 +67,14 @@ namespace Real_Estate_Agent.Program.Main
 
         public bool CheckIndex(int index)
         {
-            return index >= 0 && index < my_List.Count(); 
+            return index >= 0 && index < list.Count(); 
         }
 
         public void DeleteAll()
         {
-            my_List.Clear(); 
+            list.Clear();
+
+            observable.value = list;
         }
 
         public bool DeleteAt(int index)
@@ -74,7 +83,10 @@ namespace Real_Estate_Agent.Program.Main
             {
                 if (CheckIndex(index))
                 {
-                    my_List.RemoveAt(index);
+                    list.RemoveAt(index);
+
+                    observable.value = list;
+
                     return true; 
                 }
                 return false; 
@@ -88,18 +100,19 @@ namespace Real_Estate_Agent.Program.Main
         public T GetAt(int index)
         {
             if (CheckIndex(index))
-                return my_List.ElementAt<T>(index);
+                return list.ElementAt(index);
 
             return default(T); 
         }
 
         public string [] ToStringArray()
         {
-            string [] listInString = new string[my_List.Count];
 
-            for(int i = 0; i < my_List.Count; i++)
+            string [] listInString = new string[list.Count];
+
+            for(int i = 0; i < list.Count; i++)
             {
-                listInString[i] = my_List.ElementAt(i).ToString(); 
+                listInString[i] = list.ElementAt(i).ToString(); 
             }
 
             return listInString; 
@@ -108,10 +121,9 @@ namespace Real_Estate_Agent.Program.Main
         public List<string> ToStringList()
         {
             List<string> coll = new List<string>();
-            coll = my_List.Select(x => x.ToString()).ToList();
-
             
-            // List<String> list = ((IEnumerable)obj).Cast<Object>().Select(x => x.ToString());
+            coll = list.Select(x => x.ToString()).ToList();
+
             return coll; 
         }
     }

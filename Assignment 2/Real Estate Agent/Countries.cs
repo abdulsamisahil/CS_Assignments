@@ -5,6 +5,7 @@ using System.Text;
 
 namespace Real_Estate_Agent
 {
+    [Serializable]
     public enum Countries
     {
         Afghanistan, Algeria, Andorra, Angola, Antigua_and_Barbuda, Argentina, Armenia, Australia, Austria, Azerbaijan, Bahamas, Bahrain, Bangladesh, Barbados, Belarus, Belgium, Belize, Benin, Bhutan, Bolivia, Bosnia_and_Herzegovina, Botswana, Brazil, Brunei, Bulgaria, Burkina_Faso, Burundi, Cambodia, Cameroon, Canada, Cape_Verde, Central_African_Republic, Chad, Chile, China, Colombia, Comoros, Congo, Democratic_Republic_of_the_Congo, Costa_Rica, Côte_d_Ivoire, Croatia, Cuba, Cyprus, Czech_Republic,

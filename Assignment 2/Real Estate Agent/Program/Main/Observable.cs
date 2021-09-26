@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Real_Estate_Agent.Program.Main
 {
@@ -8,7 +9,8 @@ namespace Real_Estate_Agent.Program.Main
 
         public Action<T> listener;
 
-        public Observable(T value) {
+        public Observable(T value)
+        {
 
             _value = value;
 
@@ -39,3 +41,5 @@ namespace Real_Estate_Agent.Program.Main
         }
     }
 }
+
+

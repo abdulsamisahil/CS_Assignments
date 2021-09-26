@@ -9,6 +9,7 @@ using System.Text;
 /// @authors Abdul Sami & Motaz 
 namespace Real_Estate_Agent
 {
+    
      interface IEstate
     {
         // Each state has an id and an address, properties for the interface 

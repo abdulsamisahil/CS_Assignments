@@ -6,11 +6,11 @@ using System.Linq;
 using System.Text;
 
 
-	/// <summary>
-	///The countries of the world.
-	/// </summary>
-
-	public enum Countries
+/// <summary>
+///The countries of the world.
+/// </summary>
+[Serializable]
+public enum Countries
 	{
         Afghanistan,
         Algeria,

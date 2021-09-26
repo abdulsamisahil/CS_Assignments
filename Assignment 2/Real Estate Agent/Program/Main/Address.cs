@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Real_Estate_Agent
 { 
-        
+    [Serializable]    
     public class Address
     {
         public string  zip_code;

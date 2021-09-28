@@ -36,8 +36,11 @@ namespace Real_Estate_Agent
             "Rental",
             "Tenement"
         };
+
+        private string fileFilterStr = "Text files (*.txt)|*.txt|All files (*.save)|*.save";
+
         // A1 implementation 
-        private EstateHandler estateHandler = new EstateHandler();
+        // private EstateHandler estateHandler = new EstateHandler();
 
         // Implemented for a2 
         private EstateManager estateManager = new EstateManager(); 
@@ -74,7 +77,7 @@ namespace Real_Estate_Agent
 
             subTypeObservable.listener += imageUpdater;
 
-            estateHandler.observableList.listener += updateListView; 
+            estateManager.observable.listener += updateListView; 
         }
 
         private void imageUpdater(string value)
@@ -622,24 +625,31 @@ namespace Real_Estate_Agent
         private void mnuFileOpen_Click(object sender, EventArgs e)
         {
             Stream stream = null; 
+            
             OpenFileDialog theDialog = new OpenFileDialog();
 
             theDialog.Title = "Open Text File";
-            theDialog.Filter = "TXT files|*.txt"; // Only txt files will be shown
+            
+            theDialog.Filter = fileFilterStr; // Only txt files will be shown
+            
             theDialog.InitialDirectory = @"C:\"; // The default directory that opens
-            string filename = ""; 
 
             if(theDialog.ShowDialog() == DialogResult.OK)
             {
                 try
                 {
                     if ((stream = theDialog.OpenFile())!= null)
-                    {
-                        filename = theDialog.FileName; 
+                    { 
 
                         using (stream)
                         {
-                            // code to read from the file that is opened
+                            // string txtContent = System.IO.File.ReadAllText(theDialog.FileName);
+                            // Shop shop2 = null;
+                            // shop2 = es.BinaryDeserialize(filePath);
+
+                            Shop estate = EstateSerializer<Shop>.BinaryDeserialize(theDialog.FileName);
+
+                            MessageBox.Show(estate.ToString());
                         }
                     }
                 }
@@ -693,8 +703,10 @@ namespace Real_Estate_Agent
 
             SaveFileDialog saveFile = new SaveFileDialog();
 
-            saveFile.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+            saveFile.Filter = fileFilterStr;
+
             saveFile.FilterIndex = 2;
+            
             saveFile.RestoreDirectory = true;
 
             if (saveFile.ShowDialog() == DialogResult.OK)
@@ -704,10 +716,26 @@ namespace Real_Estate_Agent
                     // Code to serialize and write the object to file 
 
 
+                    int selectedIndex = returnListViewSelectedIndex(); 
+
+                    Shop estate = (Shop)estateManager.GetAt(selectedIndex);
+
+                    EstateSerializer<Shop>.BinarySerialize2(estate, stream);
+
                     //after writing close the stream 
                     stream.Close();
                 }
             }
+        }
+        private int returnListViewSelectedIndex()
+        {
+            int index = -1; 
+            foreach(int i in listView1.SelectedIndices)
+            {
+                index = i;
+                break; 
+            }
+            return index; 
         }
 
         private void mnuFileExit_Click(object sender, EventArgs e)
@@ -716,6 +744,60 @@ namespace Real_Estate_Agent
             if (dr == DialogResult.Yes)
                 Application.Exit();
             else return; 
+        }
+
+        private void mnuFileExportXml_Click(object sender, EventArgs e)
+        {
+            int index = returnListViewSelectedIndex(); 
+            if(index < 0)
+            {
+                MessageBox.Show("Please select an object to save it as an xml ");
+            }
+            try
+            {
+                string filename = "estateToXml.save";
+                Rental rental = (Rental)estateManager.GetAt(index);
+                string xml = EstateSerializer<Rental>.estateToXmlSerialie(rental, filename);
+                File.WriteAllText(filename, xml); 
+                MessageBox.Show("Object exported to a xml file"); 
+
+            }catch (Exception)
+            {
+                
+            }
+        }
+
+        private void mnuFileImportXml_Click(object sender, EventArgs e)
+        {
+            Stream stream = null;
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Title = "Import from xml";
+            openFileDialog.Filter = fileFilterStr;
+
+            openFileDialog.InitialDirectory = @"C:\"; 
+
+            if(openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    if ((stream = openFileDialog.OpenFile()) != null)
+                    {
+
+                        using (stream)
+                        {
+                            Rental rental = EstateSerializer<Rental>.importFromXml(openFileDialog.FileName); 
+                            MessageBox.Show(rental.ToString());
+                        }
+                    }
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Could not read xml");
+                }
+            }
+           
+
+
         }
     }
 }

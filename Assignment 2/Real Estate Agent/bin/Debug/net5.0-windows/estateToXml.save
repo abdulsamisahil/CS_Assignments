@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="utf-16"?><Rental xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><Address><zip_code>2312</zip_code><street>final</street><city>stock</city><country>Afghanistan</country></Address><NumberOfRooms>3</NumberOfRooms><Floor>2</Floor><Balcony>false</Balcony><Rent>4000</Rent></Rental>

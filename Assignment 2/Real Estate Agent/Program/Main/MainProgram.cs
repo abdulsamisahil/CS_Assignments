@@ -20,10 +20,10 @@ namespace Real_Estate_Agent
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new mainForm());
 
-
+            /*
             //Testing serialization and deserialization to binary files
 
-           /* Shop shop = new Shop();
+            Shop shop = new Shop();
             shop.ShopeName = "Samitesting";
             shop.Usage = "medical";
             shop.Income = 54000;
@@ -36,8 +36,8 @@ namespace Real_Estate_Agent
             es.BinarySerialize(shop, filePath);
             Shop shop2 = null;
             shop2 = es.BinaryDeserialize(filePath);
-            MessageBox.Show(shop2.ToString()); 
-           */
+            MessageBox.Show(shop2.ToString());
+            */
         }
     }
 }

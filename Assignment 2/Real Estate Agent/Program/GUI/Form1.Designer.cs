@@ -379,12 +379,14 @@ namespace Real_Estate_Agent
             this.mnuFileImportXml.Name = "mnuFileImportXml";
             this.mnuFileImportXml.Size = new System.Drawing.Size(281, 34);
             this.mnuFileImportXml.Text = "Import from XML file";
+            this.mnuFileImportXml.Click += new System.EventHandler(this.mnuFileImportXml_Click);
             // 
             // mnuFileExportXml
             // 
             this.mnuFileExportXml.Name = "mnuFileExportXml";
             this.mnuFileExportXml.Size = new System.Drawing.Size(281, 34);
             this.mnuFileExportXml.Text = "Export to XML file";
+            this.mnuFileExportXml.Click += new System.EventHandler(this.mnuFileExportXml_Click);
             // 
             // mnuFileExit
             // 

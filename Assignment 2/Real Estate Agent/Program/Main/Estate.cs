@@ -17,9 +17,8 @@ namespace Real_Estate_Agent
         //Common vars for all subs 
         
         private  Address address;
-        private string id; 
 
-        
+        private string id;
 
         // Constructor 
         public Estate(string Id, Address address) 

@@ -385,6 +385,7 @@ namespace Real_Estate_Agent
             this.mnuFileExportXml.Name = "mnuFileExportXml";
             this.mnuFileExportXml.Size = new System.Drawing.Size(281, 34);
             this.mnuFileExportXml.Text = "Export to XML file";
+            this.mnuFileExportXml.Click += new System.EventHandler(this.mnuFileExportXml_Click);
             // 
             // mnuFileExit
             // 

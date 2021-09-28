@@ -5,9 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Xml;
+using System.Xml.Serialization; 
 
 namespace Real_Estate_Agent.Program.Main
 {
+    
     /// <summary>
     /// This class includes two methods, serializing the estate object and transmitting it to a binary format in a file, 
     /// and deserializing an estate object from a file and coverting to an estate object. 
@@ -60,19 +63,47 @@ namespace Real_Estate_Agent.Program.Main
             T t = default(T);
 
             FileStream fileStream;
-            
+
             BinaryFormatter bf = new BinaryFormatter();
-            
-            if(File.Exists(filePath))
+
+            if (File.Exists(filePath))
             {
                 fileStream = File.OpenRead(filePath);
-                
-                t = (T) bf.Deserialize(fileStream);
-                
+
+                t = (T)bf.Deserialize(fileStream);
+
                 fileStream.Close();
             }
 
-            return t; 
+            return t;
+        }
+        /// <summary>
+        /// Serializing the T value to filename file as an Xml
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="filename"></param>
+        /// <returns></returns>
+        static public string estateToXmlSerialie(T value, string filename)
+        {
+
+
+            if (value == null)
+            {
+                return string.Empty; 
+            }
+            try
+            {
+                var xmlSer = new XmlSerializer(typeof(T));
+                var stringWriter = new StringWriter(); 
+                using(var writer = XmlWriter.Create(stringWriter))
+                {
+                    xmlSer.Serialize(writer, value);
+                    return stringWriter.ToString(); 
+                }
+            }catch (Exception e)
+            {
+                throw new Exception("Error occured when saving object as an xml file", e);
+            }
         }
     }
 }

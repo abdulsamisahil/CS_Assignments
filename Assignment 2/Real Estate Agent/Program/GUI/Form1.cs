@@ -716,14 +716,7 @@ namespace Real_Estate_Agent
                     // Code to serialize and write the object to file 
 
 
-                    int selectedIndex = -1;
-
-                    foreach (int index in listView1.SelectedIndices) {
-
-                        selectedIndex = index;
-
-                        break;
-                    }
+                    int selectedIndex = returnListViewSelectedIndex(); 
 
                     Shop estate = (Shop)estateManager.GetAt(selectedIndex);
 
@@ -734,6 +727,16 @@ namespace Real_Estate_Agent
                 }
             }
         }
+        private int returnListViewSelectedIndex()
+        {
+            int index = -1; 
+            foreach(int i in listView1.SelectedIndices)
+            {
+                index = i;
+                break; 
+            }
+            return index; 
+        }
 
         private void mnuFileExit_Click(object sender, EventArgs e)
         {
@@ -741,6 +744,24 @@ namespace Real_Estate_Agent
             if (dr == DialogResult.Yes)
                 Application.Exit();
             else return; 
+        }
+
+        private void mnuFileExportXml_Click(object sender, EventArgs e)
+        {
+            int index = returnListViewSelectedIndex(); 
+            if(index < 0)
+            {
+                MessageBox.Show("Please select an object to save it as an xml ");
+            }
+            try
+            {
+                string filename = "estateToXml.save";
+                Rental rental = (Rental)estateManager.GetAt(index);
+                EstateSerializer<Rental>.estateToXmlSerialie(rental, filename); 
+            }catch (Exception)
+            {
+                
+            }
         }
     }
 }

@@ -757,11 +757,47 @@ namespace Real_Estate_Agent
             {
                 string filename = "estateToXml.save";
                 Rental rental = (Rental)estateManager.GetAt(index);
-                EstateSerializer<Rental>.estateToXmlSerialie(rental, filename); 
+                string xml = EstateSerializer<Rental>.estateToXmlSerialie(rental, filename);
+                File.WriteAllText(filename, xml); 
+                MessageBox.Show("Object exported to a xml file"); 
+
             }catch (Exception)
             {
                 
             }
+        }
+
+        private void mnuFileImportXml_Click(object sender, EventArgs e)
+        {
+            Stream stream = null;
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Title = "Import from xml";
+            openFileDialog.Filter = fileFilterStr;
+
+            openFileDialog.InitialDirectory = @"C:\"; 
+
+            if(openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    if ((stream = openFileDialog.OpenFile()) != null)
+                    {
+
+                        using (stream)
+                        {
+                            Rental rental = EstateSerializer<Rental>.importFromXml(openFileDialog.FileName); 
+                            MessageBox.Show(rental.ToString());
+                        }
+                    }
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Could not read xml");
+                }
+            }
+           
+
+
         }
     }
 }

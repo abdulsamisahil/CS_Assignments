@@ -98,11 +98,29 @@ namespace Real_Estate_Agent.Program.Main
                 using(var writer = XmlWriter.Create(stringWriter))
                 {
                     xmlSer.Serialize(writer, value);
+                    writer.Flush(); 
                     return stringWriter.ToString(); 
                 }
             }catch (Exception e)
             {
                 throw new Exception("Error occured when saving object as an xml file", e);
+            }
+        }
+        /// <summary>
+        /// This functions loads an object from the xml file
+        /// </summary>
+        /// <param name="filename"></param>
+        /// <returns></returns>
+
+        static public T importFromXml(string filename)
+        {
+            T t = default(T); 
+            var stream = File.OpenText(filename); 
+            using (stream)
+            {
+                var serializer = new XmlSerializer(typeof(T));
+                t = (T)serializer.Deserialize(stream); 
+                return t; 
             }
         }
     }

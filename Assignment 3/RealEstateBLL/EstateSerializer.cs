@@ -8,7 +8,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Xml;
 using System.Xml.Serialization; 
 
-namespace Real_Estate_Agent.Program.Main
+namespace RealEstateBLL
 {
     
     /// <summary>

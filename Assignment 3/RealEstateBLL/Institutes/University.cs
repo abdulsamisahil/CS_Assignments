@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Real_Estate_Agent
+namespace RealEstateBLL
 {
     [Serializable]
     public class University : Institutional

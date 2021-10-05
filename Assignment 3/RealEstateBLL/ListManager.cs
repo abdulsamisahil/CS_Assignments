@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 using System.Linq;
 
-namespace Real_Estate_Agent.Program.Main
+namespace RealEstateBLL
 {
     class ListManager<T> : IListManager<T>
     {

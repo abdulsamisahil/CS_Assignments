@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Real_Estate_Agent
+namespace RealEstateBLL
 { 
     [Serializable]    
     public class Address

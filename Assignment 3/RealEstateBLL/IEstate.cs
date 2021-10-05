@@ -7,7 +7,7 @@ using System.Text;
 /// This interface will be implemented by the Estate and it includes some 
 /// common objects like id and address   
 /// @authors Abdul Sami & Motaz 
-namespace Real_Estate_Agent
+namespace RealEstateBLL
 {
     
      interface IEstate

@@ -43,7 +43,7 @@ namespace Real_Estate_Agent
         // private EstateHandler estateHandler = new EstateHandler();
 
         // Implemented for a2 
-        private EstateManager estateManager = new EstateManager(); 
+        private EstateManagerX estateManager = new EstateManagerX(); 
 
         public mainForm()
         {

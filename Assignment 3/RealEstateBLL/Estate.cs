@@ -8,7 +8,7 @@ using System.Text;
 /// commercial, residential, instit... 
 /// @authors Abdul Sami & Motaz 
 /// </summary>
-namespace Real_Estate_Agent
+namespace RealEstateBLL
 {
     [Serializable]
 

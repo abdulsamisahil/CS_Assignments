@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Real_Estate_Agent.Program.Main
+namespace RealEstateBLL
 {
     class Utilis
     {

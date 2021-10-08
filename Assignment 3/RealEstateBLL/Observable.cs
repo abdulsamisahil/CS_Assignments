@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace RealEstateBLL
 {
-    class Observable<T>
+   public class Observable<T>
     {
         private T _value;
 

@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+
 using System.Linq; 
-using Real_Estate_Agent.Program.Main;
+//using Real_Estate_Agent.Program.Main;
 using System.IO;
-using System.Runtime.Serialization.Formatters.Binary; 
+using System.Runtime.Serialization.Formatters.Binary;
+using RealEstateBLL; 
 namespace Real_Estate_Agent
 {
     public partial class mainForm : Form
@@ -43,7 +45,7 @@ namespace Real_Estate_Agent
         // private EstateHandler estateHandler = new EstateHandler();
 
         // Implemented for a2 
-        private EstateManagerX estateManager = new EstateManagerX(); 
+        private EstateManager estateManager = new EstateManager(); 
 
         public mainForm()
         {

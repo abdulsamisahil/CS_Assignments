@@ -2,7 +2,7 @@
 
 namespace RealEstateBLL
 {
-    class Utilis
+    public class Utilis
     {
         public static string[] enumToStrArr<T>()
         {

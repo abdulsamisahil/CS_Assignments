@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace RealEstateBLL
 {
-    class ListManager<T> : IListManager<T>
+    public class ListManager<T> : IListManager<T>
     {
         // Instance 
         //private List<T> my_List;

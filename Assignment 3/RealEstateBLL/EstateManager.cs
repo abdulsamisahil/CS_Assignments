@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RealEstateBLL
 {
-    class EstateManager : ListManager<Estate>
+    public class EstateManager : ListManager<Estate>
     {
         public EstateManager() 
         {

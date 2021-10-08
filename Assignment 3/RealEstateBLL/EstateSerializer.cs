@@ -19,7 +19,7 @@ namespace RealEstateBLL
     /// It is implemented as a generic class and can be used for any object serialization and deserialization. 
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    class EstateSerializer<T>
+    public class EstateSerializer<T>
     {
         
         /// <summary>

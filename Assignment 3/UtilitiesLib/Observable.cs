@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace RealEstateBLL
+namespace UtilitiesLib
 {
    public class Observable<T>
     {

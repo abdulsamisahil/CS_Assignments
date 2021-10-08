@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace RealEstateBLL
+namespace RealEstateDAL
 {
     [Serializable]
     public class Tenement : Apartment

@@ -6,7 +6,9 @@ using System.Linq;
 //using Real_Estate_Agent.Program.Main;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
-using RealEstateBLL; 
+using RealEstateBLL;
+using RealEstateDAL;
+using UtilitiesLib; 
 namespace Real_Estate_Agent
 {
     public partial class mainForm : Form

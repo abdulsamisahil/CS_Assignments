@@ -3,9 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31624.102
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Real Estate Agent", "Real Estate Agent.csproj", "{C5C11517-599A-42C6-A78B-A92FF64FE5F8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RealEstateApp", "RealEstateApp.csproj", "{C5C11517-599A-42C6-A78B-A92FF64FE5F8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealEstateBLL", "..\RealEstateBLL\RealEstateBLL.csproj", "{E1C91D2B-E7AC-4E15-BA4E-EAD173820C0E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RealEstateBLL", "..\RealEstateBLL\RealEstateBLL.csproj", "{E1C91D2B-E7AC-4E15-BA4E-EAD173820C0E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealEstateDAL", "..\RealEstateDAL\RealEstateDAL.csproj", "{F665685C-C1B8-425E-A96A-8B9FED9E614D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UtilitiesLib", "..\UtilitiesLib\UtilitiesLib.csproj", "{3245480A-80F0-4A9F-82CF-F5BC18A05E72}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{E1C91D2B-E7AC-4E15-BA4E-EAD173820C0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E1C91D2B-E7AC-4E15-BA4E-EAD173820C0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E1C91D2B-E7AC-4E15-BA4E-EAD173820C0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F665685C-C1B8-425E-A96A-8B9FED9E614D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F665685C-C1B8-425E-A96A-8B9FED9E614D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F665685C-C1B8-425E-A96A-8B9FED9E614D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F665685C-C1B8-425E-A96A-8B9FED9E614D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3245480A-80F0-4A9F-82CF-F5BC18A05E72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3245480A-80F0-4A9F-82CF-F5BC18A05E72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3245480A-80F0-4A9F-82CF-F5BC18A05E72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3245480A-80F0-4A9F-82CF-F5BC18A05E72}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

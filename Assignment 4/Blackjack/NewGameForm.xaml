@@ -1,0 +1,16 @@
+﻿<Window x:Class="Blackjack.NewGameWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Blackjack"
+        mc:Ignorable="d"
+        Title="Select the amount of players and decks to play with: " Height="475" Width="800">
+    <StackPanel>
+        <Label FontStyle="Italic" FontSize="20" Margin="20">How many decks?</Label>
+        <TextBox x:Name="TxtBoxNbrOfDecks"  Width="500" Height="30" Margin="20"></TextBox>
+        <Label FontStyle="Italic" FontSize="20" Margin="20">How many players?</Label>
+        <TextBox x:Name="TxtBoxNbrOfPlayers" Width="500" Height="30" Margin="20" TextChanged="TxtBoxNbrOfPlayers_TextChanged"></TextBox>
+        <Button Margin="20" Width="500" Height="100" Background="Lime" FontStyle="Italic" Click="Button_Click">Start game</Button>
+    </StackPanel>
+</Window>

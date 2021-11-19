@@ -1,27 +1,57 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using UtilitiesLib;
 
 namespace GameCardLib
 {
     public class Card
     {
-        public int Value { get; set; }
-        public Suite Suite { get; set; }
-        public bool FaceUp { get; set; }
+        private EnumSuit _suite;
+        private EnumValue _cardValue;
 
-        public Card(int value, Suite suite, bool faceUp)
+        /// <summary>
+        /// construct of a card, each card has a suit and value as enums
+        /// </summary>
+        /// <param name="suite"></param>
+        /// <param name="cardValue"></param>
+        public Card(EnumSuit suite, EnumValue cardValue) 
         {
-            Value = value;
-            Suite = suite;
-            FaceUp = faceUp;
+            this._suite = suite;
+            this._cardValue = cardValue;
         }
-        public Card()
-        {
+        /// <summary>
+        /// returns the cards value as enum
+        /// </summary>
+        public EnumValue CardValue { get { return _cardValue; } }
 
+        /// <summary>
+        /// returns the cards suite as enum
+        /// </summary>
+        public EnumSuit Suite { get { return _suite; } }
+
+        /// <summary>
+        /// returns the cards value as int.
+        /// </summary>
+        /// <returns></returns>
+        public int CardValueInt()
+        {
+            if((int)_cardValue > 10)
+            {
+                return 10;
+            } else 
+            {
+            return (int)_cardValue;
+            }
         }
+
+        /// <summary>
+        /// returns the card as a string
+        /// </summary>
+        /// <returns></returns>
+        public string CardsToString()
+        {
+            return this._cardValue + " of " + this._suite;
+        }
+
     }
 }

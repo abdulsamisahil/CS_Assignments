@@ -2,66 +2,100 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using UtilitiesLib;
 
 namespace GameCardLib
 {
     public class Deck
     {
-        private readonly Random _rnd;
-        public int Multiplier { get; set; }
-        public List<Card> Cards { get; set; }
+        private int _numberOfDecks;
+        private int _numberOfCards;
 
-        public Deck(int multiplier)
+        private List<int> cardAsInt;
+        private Queue<Card> deckOfCards;
+        private Random rand = new Random();
+
+
+        /// <summary>
+        /// Construct with number of decks from parameter
+        /// </summary>
+        /// <param name="numberOfDecks"></param>
+        public Deck(int numberOfDecks)
         {
-            if (multiplier < 0) throw new ArgumentException(nameof(multiplier));
-            _rnd = new Random();
-            Multiplier = multiplier;
-            FillDeck(multiplier);
-            ShuffleDeck();
+            if(numberOfDecks > 1 && numberOfDecks <= 6){
+                Console.WriteLine(numberOfDecks);
+                this._numberOfDecks = numberOfDecks;
+                this._numberOfCards = numberOfDecks * 52;
+            } else {
+                Console.WriteLine(numberOfDecks);
+                this._numberOfDecks = 1;
+                this._numberOfCards = _numberOfDecks * 52;
+            }
+            Shuffle();
         }
 
-        public void FillDeck(int multiplier)
+        /// <summary>
+        /// initialize the deck and shuffles it
+        /// </summary>
+        public void Shuffle()
         {
-            Cards = new List<Card>();
-            for (int i = 0; i < multiplier; i++)
+            deckOfCards = new Queue<Card>();
+            generateCardAsInt();
+            for(int i = _numberOfCards - 1; i >= 0; i--)
             {
-                for (int j = 1; j <= 13; j++)
-                {
-                    Cards.Add(new Card(j, Suite.Club, true));
-                    Cards.Add(new Card(j, Suite.Diamond, true));
-                    Cards.Add(new Card(j, Suite.Heart, true));
-                    Cards.Add(new Card(j, Suite.Spade, true));
-                }
+                int index = rand.Next(0, i);
+                int temp = cardAsInt[i];
+                cardAsInt[i] = cardAsInt[index];
+                cardAsInt[index] = temp;
+            }
+            fillDeck();
+        }
+
+        /// <summary>
+        /// generates a int-list with the size of _numberOfCards
+        /// </summary>
+        private void generateCardAsInt()
+        {
+            cardAsInt = new List<int>();
+            for (int i = 0; i < _numberOfCards; i++)
+            {
+                cardAsInt.Add(i);
             }
         }
 
-        public void ShuffleDeck()
+        /// <summary>
+        /// Fills the DeckOfCards with cards
+        /// </summary>
+        private void fillDeck()
         {
-            Cards = Cards.OrderBy(c => _rnd.Next()).ToList();
-        }
-
-        public void AddUsedCardsandShuffle(List<Card> usedCards)
-        {
-            Cards.AddRange(usedCards);
-            ShuffleDeck();
-        }
-
-        public Card Pop()
-        {
-            if (Cards != null && Cards.Count > 0)
+            for (int i = 0; i < cardAsInt.Count; i++)
             {
-                Card c = Cards[0];
-                Cards.RemoveAt(0);
-                return c;
+                EnumSuit suit = (EnumSuit)(cardAsInt[i] % 4);
+                EnumValue value = (EnumValue)(cardAsInt[i] % 13 + 1);
+                deckOfCards.Enqueue(new Card(suit, value));
             }
-            return null;
         }
 
-        public bool LessThanQuarterLeft()
+        /// <summary>
+        /// deals the first card in the deck
+        /// if the deck is empty, reshuffles.
+        /// </summary>
+        /// <returns></returns>
+        public Card DealCard()
         {
-            return (52 * Multiplier) / 4 > Cards.Count;
+            if(counter() == 0)
+            {
+                Shuffle();
+            }
+            return deckOfCards.Dequeue();
+        }
+
+        /// <summary>
+        /// returns the number of cards left in the deck
+        /// </summary>
+        /// <returns></returns>
+        public int counter()
+        {
+            return deckOfCards.Count();
         }
     }
 }

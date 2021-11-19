@@ -23,6 +23,8 @@ namespace UtilitiesLib
 
         public GameManager()
         {
+
+            //Sami är bäst
             //handler 
         }
 

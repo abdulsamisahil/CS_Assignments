@@ -14,13 +14,61 @@ namespace Blackjack
         private Player currentPlayer;
         private Player dealer;
 
+        public event PlayerHitHandler PlayerChoseToHit;
+        public event EventHandler<Player> PlayerNext;
+        public event ShuffleDeckHandler DeckShuffled;
+        //public event SendDealerHandler DealerRecieved;
+        //public event ReturnFirstPlayerHandler FirstPlayerRecieved;
+        public event EventHandler NewGameEvent; 
 
 
         public Form1()
         {
             InitializeComponent();
             InitializeComponents();
-            
+
+            PlayerChoseToHit += (Player player) =>
+            {
+                updatePlayer();
+                checkPlayerScore();
+                checkCardsLeft();
+            };
+
+            PlayerNext += (object sender, Player player) =>
+            {
+                if (player != null)
+                {
+                    updatePlayer();
+                    checkPlayerScore();
+                    checkCardsLeft();
+                }
+                else
+                {
+                    btn_dealNewRound.Visible = true;
+                    btn_player1_hit.Visible = false;
+                    btn_playerStand.Visible = false;
+                }
+            };
+
+            DeckShuffled += () =>
+            {
+                checkCardsLeft();
+            };
+
+            NewGameEvent += (object sender, EventArgs e) =>
+            {
+                btn_playerStand.Visible = true;
+                btn_player1_hit.Visible = true;
+
+                checkCardsLeft();
+                updatePlayer();
+                updateDealerFirstCard();
+
+                showComponents();
+                checkPlayerScore();
+            };
+
+
         }
 
   
@@ -62,10 +110,14 @@ namespace Blackjack
         /// <param name="e"></param>
         private void bt_shuffle_Click(object sender, EventArgs e)
         {
+
             ShuffleDeckHandler shuffleDeck = new ShuffleDeckHandler(gameManager.ShuffleDeck);
             shuffleDeck();
-
-            checkCardsLeft();
+            if (DeckShuffled != null)
+            {
+                DeckShuffled();
+            }
+            // checkCardsLeft();
         }
 
         /// <summary>
@@ -83,18 +135,22 @@ namespace Blackjack
             NextPlayerHandler nextplayer = new NextPlayerHandler(gameManager.NextPlayer);
             currentPlayer = nextplayer(currentPlayer);
 
-            if (currentPlayer != null)
+            if(PlayerNext != null)
             {
-                updatePlayer();
-                checkPlayerScore();
-                checkCardsLeft();
+                PlayerNext(this, currentPlayer); 
             }
-            else
-            {
-                btn_dealNewRound.Visible = true;
-                btn_player1_hit.Visible = false;
-                btn_playerStand.Visible = false;
-            }
+            //if (currentPlayer != null)
+            //{
+            //    updatePlayer();
+            //    checkPlayerScore();
+            //    checkCardsLeft();
+            //}
+            //else
+            //{
+            //    btn_dealNewRound.Visible = true;
+            //    btn_player1_hit.Visible = false;
+            //    btn_playerStand.Visible = false;
+            //}
         }
 
         /// <summary>
@@ -179,12 +235,17 @@ namespace Blackjack
         /// <param name="e"></param>
         private void btn_player_hit_Click(object sender, EventArgs e)
         {
+
             PlayerHitHandler playerHit = new PlayerHitHandler(gameManager.PlayerHits);
             playerHit(currentPlayer);
 
-            updatePlayer();
-            checkPlayerScore();
-            checkCardsLeft();
+            if (PlayerChoseToHit != null)
+            {
+                PlayerChoseToHit(currentPlayer);
+            }
+            //updatePlayer();
+            //checkPlayerScore();
+            //checkCardsLeft();
         }
 
         /// <summary>
@@ -207,15 +268,19 @@ namespace Blackjack
                 currentPlayer = sendFirstPlayer();
 
 
-                btn_playerStand.Visible = true; 
-                btn_player1_hit.Visible = true;
+                if(NewGameEvent != null)
+                {
+                    NewGameEvent(this, EventArgs.Empty); 
+                }
+                //btn_playerStand.Visible = true; 
+                //btn_player1_hit.Visible = true;
 
-                checkCardsLeft();
-                updatePlayer();
-                updateDealerFirstCard();
+                //checkCardsLeft();
+                //updatePlayer();
+                //updateDealerFirstCard();
 
-                showComponents();
-                checkPlayerScore();
+                //showComponents();
+                //checkPlayerScore();
             }
             else
             {

@@ -6,6 +6,7 @@ using GameCardLib;
 
 namespace UtilitiesLib 
 {
+
     public delegate void PlayerHitHandler(Player player);
     public delegate Player NextPlayerHandler(Player player);
     public delegate void ShuffleDeckHandler();
@@ -13,8 +14,12 @@ namespace UtilitiesLib
     public delegate Player ReturnFirstPlayerHandler();
 
 
+     
+
     public class GameManager 
     {
+        
+
         private Deck deck;
         private List<Player> listOfPlayers;
         private Player Dealer;

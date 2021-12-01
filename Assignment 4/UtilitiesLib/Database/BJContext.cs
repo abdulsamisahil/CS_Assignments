@@ -9,12 +9,20 @@ namespace UtilitiesLib.Database
 {
     public class BJContext : DbContext
     {
-        private readonly string sqlServerUrl = @"Server=(localdb)\mssqllocaldb;Database=Blogging;Trusted_Connection=True;";
+        private readonly string sqlServerUrl = @"Server=DESKTOP-MVMLQOF\Sami;Database=Blackjack;Trusted_Connection=True;";
 
         public DbSet<Player> players;
 
         public DbSet<Result> results;
 
+        public BJContext(DbContextOptions<BJContext> options) : base(options)
+        {
+
+        }
+        public BJContext()
+        {
+
+        }
         public List<Player> getPlayers() 
         {
             using (var db = new BJContext())
@@ -40,7 +48,7 @@ namespace UtilitiesLib.Database
 
                 result.date = new DateTime().ToShortDateString();
 
-                db.results.Add(new Result());
+                
 
                 foreach (Player player in players) 
                 {
@@ -50,6 +58,8 @@ namespace UtilitiesLib.Database
                 }
 
                 result.winner = winner.id;
+
+                db.results.Add(result);
 
                 db.SaveChanges();
             }

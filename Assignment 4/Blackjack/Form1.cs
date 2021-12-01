@@ -327,6 +327,9 @@ namespace Blackjack
                 }
             }
             MessageBox.Show(gameManager.Results(),"Results");
+
+            updateDataGrids();
+
             btn_dealNewRound.Visible = true;
             btn_player1_hit.Visible = false;
             btn_playerStand.Visible = false;
@@ -390,6 +393,16 @@ namespace Blackjack
             btn_player1_hit.Visible = true;
             btn_playerStand.Visible = true;
             checkPlayerScore();
+        }
+
+        private void updateDataGrids()
+        {
+            using (var db = new UtilitiesLib.Database.BJContext())
+            {
+                dataGridView1.DataSource = db.getPlayers();
+
+                dataGridView2.DataSource = db.getResults();
+            }
         }
     }
 }

@@ -9,9 +9,28 @@ namespace UtilitiesLib.Database
 {
     public class BJContext : DbContext
     {
+        private readonly string sqlServerUrl = @"Server=(localdb)\mssqllocaldb;Database=Blogging;Trusted_Connection=True;";
+
         public DbSet<Player> players;
 
         public DbSet<Result> results;
+
+        public List<Player> getPlayers() 
+        {
+            using (var db = new BJContext())
+            {
+                return db.players.ToList();
+            }
+        }
+
+        public List<Result> getResults()
+        {
+            using (var db = new BJContext())
+            {
+
+                return db.results.ToList();
+            }
+        }
 
         public void saveRound(List<Player> players, Player winner)
         {
@@ -35,5 +54,11 @@ namespace UtilitiesLib.Database
                 db.SaveChanges();
             }
         }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer(sqlServerUrl);
+        }
+
     }
 }

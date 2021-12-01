@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using GameCardLib;
+using System.Linq;
 
 
 namespace UtilitiesLib 
@@ -186,12 +187,55 @@ namespace UtilitiesLib
 
         public string Results()
         {
-            string result = "";
+
+            string result = "" + "";
+            
             for (int i = 0; i < listOfPlayers.Count; i++)
             {
                 result += rules.Results(listOfPlayers[i], Dealer) + "\n";
             }
+
+            saveResults();
+
             return result;
+        }
+
+        public void saveResults()
+        {
+
+            var results = new Dictionary<Player, bool>();
+
+            results.Add(Dealer, false);
+
+            foreach (Player player in listOfPlayers)
+            {
+                results.Add(player, false);
+            }
+
+
+
+            var playerOrderdByHandValue = results.Keys.OrderBy(player => player.HandValue()).Reverse();
+
+            int highestValue = -1;
+
+            foreach (var player in playerOrderdByHandValue)
+            {
+                if (!player.IsThick) 
+                {
+                    if (highestValue == -1)
+                    {
+                        results[player] = true;
+
+                        highestValue = player.HandValue();
+                    }
+                    else if (player.HandValue() == highestValue)
+                    {
+                        results[player] = true; 
+                    }
+                }
+            }
+
+
         }
     }
 }

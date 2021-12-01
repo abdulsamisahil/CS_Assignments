@@ -1,17 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using GameCardLib;
 using System.Linq;
+
 
 namespace UtilitiesLib 
 {
 
-    public delegate void PlayerHitHandler(Player player);
-    public delegate Player NextPlayerHandler(Player player);
+    public delegate void PlayerHitHandler(GameCardLib.Player player);
+    public delegate GameCardLib.Player NextPlayerHandler(GameCardLib.Player player);
     public delegate void ShuffleDeckHandler();
-    public delegate Player SendDealerHandler();
-    public delegate Player ReturnFirstPlayerHandler();
+    public delegate GameCardLib.Player SendDealerHandler();
+    public delegate GameCardLib.Player ReturnFirstPlayerHandler();
 
 
      
@@ -20,9 +20,9 @@ namespace UtilitiesLib
     {
         
 
-        private Deck deck;
-        private List<Player> listOfPlayers;
-        private Player Dealer;
+        private GameCardLib.Deck deck;
+        private List<GameCardLib.Player> listOfPlayers;
+        private GameCardLib.Player Dealer;
         private int _nbrOfDecks;
         private Rules rules;
 
@@ -41,7 +41,7 @@ namespace UtilitiesLib
         public GameManager(int nbrOfDecks,int nbrOfPlayers)
         {
             this._nbrOfDecks = nbrOfDecks;
-            deck = new Deck(_nbrOfDecks);
+            deck = new GameCardLib.Deck(_nbrOfDecks);
             CreateNewGame(nbrOfPlayers);
             rules = new Rules();
             DealTwoFirstCards();
@@ -55,12 +55,12 @@ namespace UtilitiesLib
         /// <param name="nbrOfPlayers"></param>
         private void CreateNewGame(int nbrOfPlayers)
         {
-            Dealer = new Player(0, "Dealer");
-            listOfPlayers = new List<Player>();
+            Dealer = new GameCardLib.Player(0, "Dealer");
+            listOfPlayers = new List<GameCardLib.Player>();
 
             for (int i = 1; i <= nbrOfPlayers; i++)
             {
-                listOfPlayers.Add(new Player(i, "Player_" + i));
+                listOfPlayers.Add(new GameCardLib.Player(i, "Player_" + i));
             }
         }
 
@@ -101,7 +101,7 @@ namespace UtilitiesLib
         /// returns the first player in the list.
         /// </summary>
         /// <returns></returns>
-        public Player sendFirstPlayer()
+        public GameCardLib.Player sendFirstPlayer()
         {
             return listOfPlayers[0]; 
         }
@@ -110,7 +110,7 @@ namespace UtilitiesLib
         /// returns the dealer
         /// </summary>
         /// <returns></returns>
-        public Player sendDealer()
+        public GameCardLib.Player sendDealer()
         {
             return Dealer;
         }
@@ -135,7 +135,7 @@ namespace UtilitiesLib
         /// </summary>
         /// <param name="player"></param>
         /// <returns></returns>
-        public Player NextPlayer(Player player)
+        public GameCardLib.Player NextPlayer(GameCardLib.Player player)
         {
             if (player.PlayerID >= listOfPlayers.Count)
             {
@@ -149,7 +149,7 @@ namespace UtilitiesLib
         /// when the hit button is pressed, the player recieves a card.
         /// </summary>
         /// <param name="player"></param>
-        public void PlayerHits(Player player)
+        public void PlayerHits(GameCardLib.Player player)
         {
             player.AddCard(deck.DealCard());
             rules.CheckHand(player);
@@ -202,17 +202,17 @@ namespace UtilitiesLib
         public void saveResults()
         {
 
-            var results = new Dictionary<Player, bool>();
+            var results = new Dictionary<GameCardLib.Player, bool>();
 
             results.Add(Dealer, false);
 
-            foreach (Player player in listOfPlayers)
+            foreach (GameCardLib.Player player in listOfPlayers)
             {
                 results.Add(player, false);
             }
 
 
-
+            
             var playerOrderdByHandValue = results.Keys.OrderBy(player => player.HandValue()).Reverse();
 
             int highestValue = -1;
@@ -233,6 +233,40 @@ namespace UtilitiesLib
                     }
                 }
             }
+
+
+            // Saving to database
+            using (var db = new Database.BJContext())
+            {
+                GameCardLib.Player player1 = null;
+
+                foreach (GameCardLib.Player player in results.Keys) 
+                { 
+                    if (results[player])
+                    {
+
+                        player1 = player;
+                    }
+                }
+
+                var playersDb = results.Keys.ToList().Select(gameCardLibPlayerToPlayerDb).ToList();
+
+                db.saveRound(playersDb, gameCardLibPlayerToPlayerDb(player1));
+
+                db.SaveChanges();
+            };
+        }
+
+        private Database.Player gameCardLibPlayerToPlayerDb(GameCardLib.Player player)
+        {
+
+            var playerDb = new Database.Player();
+
+            playerDb.score = player.HandValue();
+
+            playerDb.name = player.Name;
+
+            return playerDb;
         }
     }
 }

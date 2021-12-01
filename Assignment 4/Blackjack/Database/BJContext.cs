@@ -4,41 +4,36 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GameCardLib;
 
 namespace Blackjack.Database
 {
     public class BJContext : DbContext
     {
-        public DbSet<Player> players; 
+        public DbSet<Player> players;
 
-        public List<Player> getPlayers()
-        {
-            using (var db = new BJContext()) 
-            {
-                  return db.players.ToList();
-            }
-        }
+        public DbSet<Result> results;
 
-        public void addPlayers(List<Player> players) 
+        public void saveRound(List<Player> players, Player winner)
         {
             using (var db = new BJContext())
             {
+                Result result = new Result();
 
-                db.players.AddRange(players);
+                result.date = new DateTime().ToShortDateString();
+
+                db.results.Add(new Result());
+
+                foreach (Player player in players) 
+                {
+                    player.result = result.id;
+
+                    db.players.Add(player);
+                }
+
+                result.winner = winner.id;
+
+                db.SaveChanges();
             }
         }
-    }
-
-    public class Result<T>
-    {
-        public void add(T item) { 
-        }
-
-        public T get(T item)
-        {
-
-            return item;
-        } 
     }
 }

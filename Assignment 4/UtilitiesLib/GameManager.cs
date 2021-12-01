@@ -4,7 +4,6 @@ using System.Windows.Forms;
 using GameCardLib;
 using System.Linq;
 
-
 namespace UtilitiesLib 
 {
 
@@ -234,8 +233,6 @@ namespace UtilitiesLib
                     }
                 }
             }
-
-
         }
     }
 }

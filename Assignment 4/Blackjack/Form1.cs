@@ -6,6 +6,7 @@ using System.Threading;
 using UtilitiesLib;
 using System.Linq;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace Blackjack
 {
@@ -397,12 +398,64 @@ namespace Blackjack
 
         private void updateDataGrids()
         {
-            using (var db = new UtilitiesLib.Database.BJContext())
+            try
             {
-                dataGridView1.DataSource = db.getPlayers();
+                var db = new UtilitiesLib.Database.Repository();
+                var players = new BindingList<UtilitiesLib.Database.Player>(); 
+                foreach(var player in db.getPlayers())
+                {
+                    players.Add(player); 
+                }
+                dataGridView1.DataSource = players;
 
-                dataGridView2.DataSource = db.getResults();
+                var results = new BindingList<UtilitiesLib.Database.Result>();
+                foreach (var result in db.getResults())
+                {
+                    results.Add(result);
+                }
+
+                dataGridView2.DataSource = results;
+
             }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message); 
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+           
+            var db = new UtilitiesLib.Database.Repository();    
+            var index = dataGridView1.CurrentCell.RowIndex;
+            var id = (int)dataGridView1.Rows[index].Cells[0].Value;
+            string name = (string)dataGridView1.Rows[index].Cells[1].Value; 
+
+            MessageBox.Show("Index: " + index + " id: " + id + " name: " + name);
+
+            db.updateName(name, id);
+            //if (index == 1)
+            //{
+            //    db.updateName(name, id);
+            //}
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var db = new UtilitiesLib.Database.Repository();
+            var index = dataGridView1.CurrentCell.RowIndex;
+            var id = (int)dataGridView1.Rows[index].Cells[0].Value;
+        
+            MessageBox.Show("Index: " + index + " id: " + id);
+
+            db.deleteRecord(id);
+            dataGridView1.Rows.RemoveAt(index); 
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

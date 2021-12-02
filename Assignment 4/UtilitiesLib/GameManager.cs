@@ -215,33 +215,22 @@ namespace UtilitiesLib
             
             var playerOrderdByHandValue = results.Keys.OrderBy(player => player.HandValue()).Reverse();
 
-            int highestValue = -1;
-
             foreach (var player in playerOrderdByHandValue)
             {
                 if (!player.IsThick) 
                 {
-                    if (highestValue == -1)
-                    {
-                        results[player] = true;
-
-                        highestValue = player.HandValue();
-                    }
-                    else if (player.HandValue() == highestValue)
-                    {
-                        results[player] = true; 
-                    }
+                    results[player] = true;
+                    break; 
                 }
             }
-
-
-            // Saving to database
-            using (var db = new Database.BJContext())
+            //Save to database
+            try
             {
+                var db = new Database.Repository();
                 GameCardLib.Player player1 = null;
 
-                foreach (GameCardLib.Player player in results.Keys) 
-                { 
+                foreach (GameCardLib.Player player in results.Keys)
+                {
                     if (results[player])
                     {
 
@@ -252,9 +241,11 @@ namespace UtilitiesLib
                 var playersDb = results.Keys.ToList().Select(gameCardLibPlayerToPlayerDb).ToList();
 
                 db.saveRound(playersDb, gameCardLibPlayerToPlayerDb(player1));
-
-                db.SaveChanges();
-            };
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message); 
+            }
         }
 
         private Database.Player gameCardLibPlayerToPlayerDb(GameCardLib.Player player)

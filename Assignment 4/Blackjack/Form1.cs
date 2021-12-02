@@ -434,11 +434,7 @@ namespace Blackjack
 
             MessageBox.Show("Index: " + index + " id: " + id + " name: " + name);
 
-            db.updateName(name, id);
-            //if (index == 1)
-            //{
-            //    db.updateName(name, id);
-            //}
+            db.updateName(name, id);  
         }
 
         private void button2_Click(object sender, EventArgs e)

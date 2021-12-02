@@ -12,7 +12,7 @@ namespace UtilitiesLib
         private readonly int blackJack = 21;
 
         /// <summary>
-        /// rules of blackjack, checks the recieved players hand, 
+        /// rules of blackjack, checks the recieved Players hand, 
         /// sets values in player if bools reached.
         /// </summary>
         /// <param name="player"></param>

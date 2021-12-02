@@ -8,15 +8,15 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace UtilitiesLib.Database
 {
+    [Table("Results")]
     public class Result
     {
         [
-            DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity),
-            Key()
+          Key
         ]
         public int id { get; set; }
         
-        public string date;
+        public string date { get; set; }
 
         [ForeignKey("Player")]
         public int winner;

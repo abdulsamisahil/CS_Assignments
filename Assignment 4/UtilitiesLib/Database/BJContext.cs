@@ -4,30 +4,34 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Data.SqlClient; 
 namespace UtilitiesLib.Database
 {
     public class BJContext : DbContext
     {
-        private readonly string sqlServerUrl = @"Server=DESKTOP-MVMLQOF\Sami;Database=Blackjack;Trusted_Connection=True;";
+        // Data Source=localhost\SQLEXPRESS;Integrated Security=True
 
-        public DbSet<Player> players;
+        private readonly string sqlServerUrl = @"Data Source=localhost\SQLEXPRESS;Integrated Security=True";
 
-        public DbSet<Result> results;
+            //@"Server=localhost\SQLEXPRESS;Database=Blackjack;Trusted_Connection=True;";
 
-        public BJContext(DbContextOptions<BJContext> options) : base(options)
-        {
+        public DbSet<Player> Players { get; set; }
 
-        }
+        public DbSet<Result> Results { get; set; }
+
+        //public BJContext(DbContextOptions<BJContext> options) : base(options)
+        //{
+
+        //}
         public BJContext()
         {
-
+            this.Database.EnsureCreated();
         }
         public List<Player> getPlayers() 
         {
             using (var db = new BJContext())
             {
-                return db.players.ToList();
+                return db.Players.ToList();
             }
         }
 
@@ -36,7 +40,7 @@ namespace UtilitiesLib.Database
             using (var db = new BJContext())
             {
 
-                return db.results.ToList();
+                return db.Results.ToList();
             }
         }
 
@@ -54,12 +58,12 @@ namespace UtilitiesLib.Database
                 {
                     player.result = result.id;
 
-                    db.players.Add(player);
+                    db.Players.Add(player);
                 }
 
                 result.winner = winner.id;
 
-                db.results.Add(result);
+                db.Results.Add(result);
 
                 db.SaveChanges();
             }
@@ -69,6 +73,10 @@ namespace UtilitiesLib.Database
         {
             optionsBuilder.UseSqlServer(sqlServerUrl);
         }
-
+        //protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //{
+        //    base.OnModelCreating(modelBuilder);
+        //    modelBuilder.Entity<Player>().ToTable("Players");
+        //}
     }
 }

@@ -34,7 +34,7 @@ namespace UtilitiesLib
         }
 
         /// <summary>
-        /// Construct the gamelogics with number of players and decks.
+        /// Construct the gamelogics with number of Players and decks.
         /// </summary>
         /// <param name="nbrOfDecks"></param>
         /// <param name="nbrOfPlayers"></param>
@@ -50,7 +50,7 @@ namespace UtilitiesLib
        
         
         /// <summary>
-        /// Initializes the Dealer and the list of players.
+        /// Initializes the Dealer and the list of Players.
         /// </summary>
         /// <param name="nbrOfPlayers"></param>
         private void CreateNewGame(int nbrOfPlayers)
@@ -82,7 +82,7 @@ namespace UtilitiesLib
         }
 
         /// <summary>
-        /// Checks if all players are finnished and wants to see dealers hand
+        /// Checks if all Players are finnished and wants to see dealers hand
         /// </summary>
         /// <returns></returns>
         public bool AllPlayersIsFinnished()

@@ -19,8 +19,6 @@ namespace Blackjack
         public event PlayerHitHandler PlayerChoseToHit;
         public event EventHandler<Player> PlayerNext;
         public event ShuffleDeckHandler DeckShuffled;
-        //public event SendDealerHandler DealerRecieved;
-        //public event ReturnFirstPlayerHandler FirstPlayerRecieved;
         public event EventHandler NewGameEvent; 
 
 
